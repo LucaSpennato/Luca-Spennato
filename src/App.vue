@@ -20,10 +20,10 @@ export default {
 
 <style lang="scss">
 
-  @import '~bootstrap/scss/bootstrap.scss';
+  @import './scss/app.scss';
 
   body{
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    background: $bodyColor;
     background-repeat: no-repeat;
   }
 

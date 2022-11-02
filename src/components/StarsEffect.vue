@@ -23,6 +23,7 @@ export default {
     position: fixed;
     height: 100%;
     width: 100%;
+    z-index: -1;
 
     .stars{ 
       width: 3px;
@@ -52,8 +53,8 @@ export default {
                 opacity: 1;
               }
               100%{
-                transform: translatey(-300px);
-                // bottom: 100%;
+                // transform: translatey(-300px);
+                bottom: 100%;
               }
             }
           }
