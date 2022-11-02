@@ -29,7 +29,7 @@ export default {
       height: 3px;
       z-index: 0;
       padding: 0;
-      background-color: gray;
+      background-color: lightgray;
       border-radius: 100%;
       animation: starsAnimation linear infinite;
       position: absolute;
@@ -40,7 +40,7 @@ export default {
         .stars{
           &:nth-child(#{$i}){
             left: percentage(random(95) / 100);
-            animation-duration: random(10) + 5 + s;
+            animation-duration: random(15) + 5 + s;
             bottom: percentage(random(80) / 100);
             opacity: 0;
   
