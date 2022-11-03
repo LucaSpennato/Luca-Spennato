@@ -35,17 +35,29 @@
 <script>
 export default {
     name: 'SkillsSection',
+    data(){
+      return{
+        currentScrollYPosition: 0,
+      }
+    },
     methods:{
-    $_isFocused(){
-      let { offsetTop, offsetHeight } = this.$refs.skillsSection;
-      this.$emit('sectionsInfos', { offsetTop: offsetTop ,sectionHeight: offsetTop + offsetHeight, position: 1 });
-    
-    }
+  $_scrollSpy(){
+    this.currentScrollYPosition = window.scrollY;
+    let { offsetTop, offsetHeight } = this.$refs.skillsSection;
+        if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
+          this.$emit('sectionInfos', 1);
+          console.log('ciao');
+        }
+        
+      },
   },
-  mounted(){
-    this.$_isFocused()
-  }
 
+  created() {
+      window.addEventListener('scroll', this.$_scrollSpy);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.$_scrollSpy);
+  },
 }
 </script>
 

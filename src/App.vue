@@ -4,7 +4,7 @@
     <StarsEffect />
 
     <!-- Page components -->
-    <HeaderComponent :currentPagePositionInfos="currentPagePositionInfos" />
+    <HeaderComponent :currentPageYPosition="currentPageYPosition" />
     <MainComponent @currentSectionOnScroll="$_getCurrentSectionOnScroll" /> 
   </div>
 </template>
@@ -23,12 +23,12 @@ export default {
   },
   data(){
     return{
-      currentPagePositionInfos: [],
+      currentPageYPosition: 0,
     }
   },
   methods:{
     $_getCurrentSectionOnScroll(params){
-      this.currentPagePositionInfos = params;
+      this.currentPageYPosition = params;
     }
   },
 

@@ -2,9 +2,11 @@
   
     <main class="container-fluid py-5 my-5 text-light">
 
-        <AboutSection @sectionsInfos="$_aboutInfos" />
+        <AboutSection @sectionInfos="$_sectionInfos" />
 
-        <SkillsSection @sectionsInfos="$_skillsInfo" />
+        <SkillsSection @sectionInfos="$_sectionInfos" />
+
+        <WorksSection @sectionInfos="$_sectionInfos" />
 
     </main>
 
@@ -13,32 +15,25 @@
 <script>
 import AboutSection from '../components/mainComponents/AboutSection.vue';
 import SkillsSection from '../components/mainComponents/SkillsSection.vue';
+import WorksSection from '../components/mainComponents/WorksSection.vue';
 
 export default {
     name: 'MainComponent',
     components:{
         AboutSection,
         SkillsSection,
+        WorksSection,
     },
     data(){
       return{
+        currentScrollYPosition: 0,
         sectionsParams: [],
       }
     },
     methods:{
-      $_sendSectionsPositionInfos(){
-        this.$emit('currentSectionOnScroll', this.sectionsParams );
+      $_sectionInfos(params){
+        this.$emit('currentSectionOnScroll', params);
       },
-      $_aboutInfos(params){
-       this.sectionsParams.push(params)
-
-      },
-      $_skillsInfo(params){
-         this.sectionsParams.push(params)
-      }
-    },
-    mounted(){
-      this.$_sendSectionsPositionInfos();
     },
 }
 </script>
