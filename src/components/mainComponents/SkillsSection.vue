@@ -35,6 +35,16 @@
 <script>
 export default {
     name: 'SkillsSection',
+    methods:{
+    $_isFocused(){
+      let { offsetTop, offsetHeight } = this.$refs.skillsSection;
+      this.$emit('sectionsInfos', { offsetTop: offsetTop ,sectionHeight: offsetTop + offsetHeight, position: 1 });
+    
+    }
+  },
+  mounted(){
+    this.$_isFocused()
+  }
 
 }
 </script>

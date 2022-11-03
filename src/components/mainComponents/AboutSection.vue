@@ -136,7 +136,16 @@
 <script>
 export default {
   name: 'AboutSection',
-
+  methods:{
+    $_isFocused(){
+      let { offsetTop, offsetHeight } = this.$refs.aboutSection;
+      this.$emit('sectionsInfos', { offsetTop: offsetTop ,sectionHeight: offsetTop + offsetHeight, position: 0 });
+    
+    }
+  },
+  mounted(){
+    this.$_isFocused()
+  }
 }
 </script>
 
