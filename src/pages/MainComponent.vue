@@ -2,9 +2,9 @@
   
     <main class="container-fluid py-5 my-5 text-light">
 
-        <AboutSection @sectionsInfos="aboutInfos" />
+        <AboutSection @sectionsInfos="$_aboutInfos" />
 
-        <SkillsSection @sectionsInfos="skillsInfo" />
+        <SkillsSection @sectionsInfos="$_skillsInfo" />
 
     </main>
 
@@ -27,7 +27,7 @@ export default {
       }
     },
     methods:{
-     scrollSpy(){
+     $_scrollSpy(){
       this.currentScrollYPosition = window.scrollY;
       // console.log(this.sectionsParams, 'ciao')
       this.sectionsParams.forEach(section => {
@@ -38,12 +38,12 @@ export default {
       });
        
       },
-      aboutInfos(params){
+      $_aboutInfos(params){
        console.log(params, 'about arrivato')
        this.sectionsParams.push(params)
 
       },
-      skillsInfo(params){
+      $_skillsInfo(params){
         console.log(params, 'skill arrivato')
          this.sectionsParams.push(params)
       }
