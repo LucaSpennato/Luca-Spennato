@@ -1,6 +1,6 @@
 <template>
   <nav id="header" class="container py-4 fixed-top">
-    <div class="row" :ref="'ciao'">
+    <div class="row">
 
       <ul class="col-12" :ref="'test'">
         <li v-for="(link, i) in navBarLinks" :key="i" >
@@ -20,6 +20,7 @@ export default {
     data(){
       return{
         currentActive: 0,
+        currentScrollYPosition: 0,
         navBarLinks:[
           {
             text: 'About',
@@ -40,27 +41,31 @@ export default {
       }
     },
     props:{
-      currentPageYPosition:{
-        type: [Number, String],
+      currentPagePositionInfos:{
+        type: Array,
         required: false,
       }
     },
     watch:{
-      currentPageYPosition(oldVal, newVal){
+      currentActive(oldVal, newVal){
         if(oldVal != newVal){
           this.navBarLinks.forEach(link => {
             link.isActive = false;
           });
-          this.navBarLinks[this.currentPageYPosition].isActive = true;
+          this.navBarLinks[this.currentActive].isActive = true;
         }
       }
     },
     methods:{
-      scrollSpy(){
-        // console.log(window.scrollY > 200);
-        if(window.scrollY > 200){
-          // console.log(window.scrollY)
-        }
+
+      $_scrollSpy(){
+        this.currentScrollYPosition = window.scrollY;
+        this.currentPagePositionInfos.forEach(section => {
+          if(this.currentScrollYPosition >= section.offsetTop - 150 && this.currentScrollYPosition < section.sectionHeight){
+            this.currentActive = section.position;
+          }
+          
+        });
       },
       $_navActiveWhenCreated(){
         this.navBarLinks.forEach(link => {
@@ -75,7 +80,13 @@ export default {
     },
     mounted(){
       this.$_navActiveWhenCreated();
-    }
+    },
+    created() {
+      window.addEventListener('scroll', this.$_scrollSpy);
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.$_scrollSpy);
+    },
 
 }
 </script>

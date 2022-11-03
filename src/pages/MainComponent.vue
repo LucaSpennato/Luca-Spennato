@@ -22,37 +22,23 @@ export default {
     },
     data(){
       return{
-        currentScrollYPosition: 0,
         sectionsParams: [],
       }
     },
     methods:{
-     $_scrollSpy(){
-      this.currentScrollYPosition = window.scrollY;
-      // console.log(this.sectionsParams, 'ciao')
-      this.sectionsParams.forEach(section => {
-        if(this.currentScrollYPosition >= section.offsetTop && this.currentScrollYPosition < section.sectionHeight){
-           this.$emit('currentSectionOnScroll', section.position);
-        }
-        
-      });
-       
+      $_sendSectionsPositionInfos(){
+        this.$emit('currentSectionOnScroll', this.sectionsParams );
       },
       $_aboutInfos(params){
-       console.log(params, 'about arrivato')
        this.sectionsParams.push(params)
 
       },
       $_skillsInfo(params){
-        console.log(params, 'skill arrivato')
          this.sectionsParams.push(params)
       }
     },
-    created () {
-      window.addEventListener('scroll', this.scrollSpy);
-    },
-    destroyed () {
-      window.removeEventListener('scroll', this.scrollSpy);
+    mounted(){
+      this.$_sendSectionsPositionInfos();
     },
 }
 </script>
