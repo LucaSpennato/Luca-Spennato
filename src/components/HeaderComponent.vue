@@ -4,7 +4,7 @@
 
       <ul class="col-12" :ref="'test'">
         <li v-for="(link, i) in navBarLinks" :key="i" >
-          <a :href="link.route" :class="{ 'active' : link.isActive }">
+          <a :href="link.route" :class="{ 'active' : link.isActive }" @click.prevent="$_goTo()">
             {{ link.text }}
           </a>
         </li>
@@ -39,13 +39,19 @@ export default {
         ]
       }
     },
+    props:{
+      currentPageYPosition:{
+        type: [Number, String],
+        required: false,
+      }
+    },
     watch:{
-      currentActive(oldVal, newVal){
+      currentPageYPosition(oldVal, newVal){
         if(oldVal != newVal){
           this.navBarLinks.forEach(link => {
             link.isActive = false;
           });
-          this.navBarLinks[this.currentActive].isActive = true;
+          this.navBarLinks[this.currentPageYPosition].isActive = true;
         }
       }
     },
@@ -63,10 +69,8 @@ export default {
           this.navBarLinks[this.currentActive].isActive = true;
       },
 
-      testings(){
-        console.log(this.$refs.test.scrollHeight);
-        
-        console.log(this.$refs);
+      $_goTo(){
+        window.scrollTo(0, 900)
       }
     },
     mounted(){
