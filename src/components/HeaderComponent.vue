@@ -9,7 +9,7 @@
           </a>
         </li>
       </ul>
-
+    
     </div>
   </nav>
 </template>
@@ -101,6 +101,8 @@ export default {
         }
       }
     }
+
+    
   }
 
 </style>
