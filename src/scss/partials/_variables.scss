@@ -1,9 +1,14 @@
 // colors
-
+$outerSpaceLight:#1B2735;
+$outerSpaceDark: #090A0F;
+$outerNebulaLight:#1d1135 ;
+$outerNebulaDark:#0c164f;
+$innerNebulaLight: #ba1e68;
+$innerNebulaDark:#5643fd;
 
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,600;1,200;1,600&display=swap');
 $mainFont: 'Titillium Web', sans-serif;
 
 // bgs
-$bodyColor: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+$bodyColor: radial-gradient(ellipse at bottom, $outerSpaceLight 0%, $outerSpaceDark 100%);

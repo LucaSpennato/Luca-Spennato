@@ -1,10 +1,10 @@
 <template>
-  <nav id="header" class="container py-4 sticky-top">
-    <div class="row" :ref="'ciao'">
+  <nav id="header" class="container pt-4 sticky-top">
+    <div class="row">
 
       <ul class="col-12" :ref="'test'">
-        <li v-for="(link, i) in navBarLinks" :key="i" >
-          <a :href="link.route" :class="{ 'active' : link.isActive }" @click.prevent="$_goTo()">
+        <li v-for="(link, i) in navBarLinks" :key="i">
+          <a :href="link.route" :class="{ 'active' : link.isActive }" >
             {{ link.text }}
           </a>
         </li>
@@ -33,7 +33,7 @@ export default {
           },
           {
             text: 'Works',
-            route: '#',
+            route: '#works',
             isActive: false,           
           },
         ]
@@ -63,10 +63,6 @@ export default {
           });
           this.navBarLinks[this.currentActive].isActive = true;
       },
-
-      $_goTo(){
-        // window.scrollTo(200)
-      }
     },
     mounted(){
       this.$_navActiveWhenCreated();
@@ -76,14 +72,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  @import '../scss/partials/_variables.scss';
 
   #header{
 
-    .active{
-      color: red;
-    }
-
+    
     ul{
       list-style: none;
       text-align: end;
@@ -91,10 +84,24 @@ export default {
       li{
         display: inline;
         margin: 0 1rem;
+
+        .active{
+          color: $innerNebulaLight;
+          filter: brightness(200%);
+        }
+
         a{
           text-transform: capitalize;
-          color: white;
+          font-weight: bold;
+          color: $innerNebulaDark;
+           filter: brightness(200%);
           text-decoration: none;
+
+          &:hover{
+             color: $innerNebulaLight;
+            filter: brightness(200%);
+          }
+
         }
       }
     }
