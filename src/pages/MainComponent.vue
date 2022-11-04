@@ -2,7 +2,7 @@
   
     <main class="container-fluid py-5 my-5 text-light">
 
-        <PresentationSection />
+        <PresentationSection @sectionInfos="$_sectionInfos" />
 
         <AboutSection @sectionInfos="$_sectionInfos" />
 
@@ -36,6 +36,7 @@ export default {
     },
     methods:{
       $_sectionInfos(params){
+        console.log(params, 'main')
         this.$emit('currentSectionOnScroll', params);
       },
     },
