@@ -1,7 +1,7 @@
 <template>
   <section id="presentation" class="container pt-3 pb-5 position-relative">
     <div class="row">
-        <div class="col-7 m-auto mb-2 test">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto mb-2 test">
             <h5>
                 Hi! I'm
             </h5>
@@ -12,7 +12,7 @@
                 and i am a
             </h5>
             <h3 class="pageStyleWordDark text-capitalize">
-                junior full stack web develoepr
+                junior full stack web developer
                 </h3>
             <div class="img-container">
                 <img id="orion" :src="require('../../assets/img/orion.png')" alt="orion constellation">
@@ -42,7 +42,6 @@ export default {
     #presentation{
         
         .img-container{
-            // overflow-x:hidden;
             position: absolute;
             transform: rotate(20deg);
             top: 0;
@@ -59,6 +58,7 @@ export default {
             }
             #canis{
                 position: inherit;
+                right: 0;
                 animation: canis 20s linear infinite;
                 width: 5rem;
                 filter: grayscale(80%) opacity(100%) brightness(150%);
@@ -99,6 +99,38 @@ export default {
                 100%{
                     transform: translate(20%);
                 }
+            }
+
+            @media screen and (max-width: 400px) {
+            
+            #canis{
+                position: inherit;
+                right:  0;
+                top: 0;
+            }
+
+            @keyframes orion {
+                0%{
+                    transform: translate(-5%, -10%);
+                }
+                50%{
+                    transform: translate(-30%, 0);
+                }
+                100%{
+                    transform: translate(-5%, -10%);
+                }
+            }
+            @keyframes canis {
+                0%{
+                    transform: translate(-20%, -40%);
+                }
+                50%{
+                    transform: translate(30%, -60%);
+                }
+                100%{
+                    transform: translate(-20%, -40%);
+                }
+            }
             }
         
 

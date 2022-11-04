@@ -2,7 +2,7 @@
   <nav id="header" class="container pt-4 sticky-top">
     <div class="row">
 
-      <ul class="col-12" :ref="'test'">
+      <ul class="col-12">
         <li v-for="(link, i) in navBarLinks" :key="i">
           <a :href="link.route" :class="{ 'active' : link.isActive }" >
             {{ link.text }}
@@ -87,20 +87,21 @@ export default {
 
         .active{
           color: $innerNebulaLight;
-          filter: brightness(200%);
         }
 
         a{
           text-transform: capitalize;
           font-weight: bold;
           color: $innerNebulaDark;
-           filter: brightness(200%);
+          filter: brightness(150%);
           text-decoration: none;
 
-          &:hover{
-             color: $innerNebulaLight;
-            filter: brightness(200%);
+          @media screen and (min-width: 992px){
+            &:hover{
+               color: $innerNebulaLight;
+            }
           }
+
 
         }
       }
