@@ -16,58 +16,50 @@
 
 <script>
 export default {
-    name: 'HeaderComponent',
-    data(){
-      return{
-        currentActive: 0,
-        navBarLinks:[
-          {
-            text: 'About',
-            route: '#about',
-            isActive: true,           
-          },
-          {
-            text: 'Skills',
-            route: '#skills',
-            isActive: false,           
-          },
-          {
-            text: 'Works',
-            route: '#works',
-            isActive: false,           
-          },
-        ]
-      }
-    },
-    props:{
-      currentPageYPosition:{
-        type: [Number, String],
-        required: false,
-      }
-    },
-    watch:{
-      currentPageYPosition(oldVal, newVal){
-        if(oldVal != newVal){
-          console.log(oldVal, newVal)
-          this.navBarLinks.forEach(link => {
-            link.isActive = false;
-          });
-          this.navBarLinks[this.currentPageYPosition].isActive = true;
-        }
-      }
-    },
-    methods:{
-      $_navActiveWhenCreated(){
-        this.navBarLinks.forEach(link => {
-            link.isActive = false;
-          });
-          this.navBarLinks[this.currentActive].isActive = true;
-      },
-    },
-    mounted(){
-      this.$_navActiveWhenCreated();
+  name: 'HeaderComponent',
+  data(){
+    return{
+      currentActive: 0,
+      navBarLinks:[
+        {
+          text: '',
+          route: '',
+          isActive: true,           
+        },
+        {
+          text: 'About',
+          route: '#about',
+          isActive: false,           
+        },
+        {
+          text: 'Skills',
+          route: '#skills',
+          isActive: false,           
+        },
+        {
+          text: 'Works',
+          route: '#works',
+          isActive: false,           
+        },
+      ]
     }
-
+  },
+  props:{
+    currentPageYPosition:{
+      type: [Number, String],
+      required: false,
+    }
+  },
+  watch:{
+    currentPageYPosition(oldVal, newVal){
+      if(oldVal != newVal){
+        this.navBarLinks.forEach(link => {
+          link.isActive = false;
+        });
+        this.navBarLinks[this.currentPageYPosition].isActive = true;
+      }
+    }
+  },
 }
 </script>
 
@@ -84,6 +76,9 @@ export default {
       li{
         display: inline;
         margin: 0 1rem;
+      &:first-child{
+        display: none;
+      }
 
         .active{
           color: $innerNebulaLight;
