@@ -19,6 +19,7 @@ export default {
 <style lang="scss" scoped>
 
   .stars-wrapper{
+    overflow: hidden;
     position: fixed;
     height: 100%;
     width: 100%;
