@@ -2,9 +2,9 @@
   <section id="skills" class="container py-5" :ref="'skillsSection'">
     <div class="row">
       <div class="col-8 m-auto mb-3">
-        <h1>
-          Skill Section
-        </h1>
+        <h4 class="pageStyleWordLight text-capitalize">
+          my skills
+        </h4>
       </div>
       <div class="col-8 m-auto">
        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore voluptatum impedit aperiam quo expedita porro provident assumenda magnam! Laudantium ad alias doloribus fugit, dignissimos accusamus accusantium blanditiis facere molestias.
@@ -44,8 +44,8 @@ export default {
   $_scrollSpy(){
     this.currentScrollYPosition = window.scrollY;
     let { offsetTop, offsetHeight } = this.$refs.skillsSection;
-        if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-          this.$emit('sectionInfos', 1);
+        if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+          this.$emit('sectionInfos', 2);
           console.log('ciao');
         }
         

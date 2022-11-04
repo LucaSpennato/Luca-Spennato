@@ -42,8 +42,8 @@ export default {
 
       let { offsetTop, offsetHeight } = this.$refs.worksSection;
 
-      if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-        this.$emit('sectionInfos', 2);
+      if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+        this.$emit('sectionInfos', 3);
       }
           
     },

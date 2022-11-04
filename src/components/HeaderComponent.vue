@@ -1,5 +1,5 @@
 <template>
-  <nav id="header" class="container pt-4 sticky-top">
+  <nav id="header" class="container-fluid pt-4 sticky-top">
     <div class="row">
 
       <ul class="col-12">
