@@ -1,12 +1,12 @@
 <template>
   <section id="about" class="container py-5" :ref="'aboutSection'">
     <div class="row">
-      <div class="col-8 m-auto mb-3">
+      <div class="col-12 col-md-10 m-auto text-center text-md-start mb-3">
         <h4 class="pageStyleWordLight text-capitalize">
           something about me
         </h4>
       </div>
-      <div class="col-8 m-auto">
+      <div class="col-12 col-md-10 m-auto">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates delectus quis temporibus quo vel dolore deserunt assumenda distinctio blanditiis ut ad odio quasi aliquid atque expedita et, vero unde molestias.
         Explicabo amet at voluptatum autem, error eveniet cum vitae voluptas natus ullam quae quasi facere fugiat reiciendis. Vero dignissimos voluptatem natus eos recusandae, sequi esse eligendi, impedit distinctio soluta quos.
         Commodi expedita in consequuntur possimus dolorem, provident asperiores assumenda, eum nesciunt repudiandae nulla unde doloribus, ex aut! Laudantium deserunt magni, dolor adipisci delectus, excepturi atque perferendis soluta facilis recusandae sunt!
