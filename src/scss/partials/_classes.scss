@@ -10,3 +10,25 @@
     color: $innerNebulaDark;
     filter: brightness(150%);
 }
+
+.nebulaStyleLinkLight{
+    font-weight: bold;
+    color: $innerNebulaLight;
+
+    &:hover{
+        font-weight: bold;
+        color: $innerNebulaDark;
+        filter: brightness(150%);
+    }
+}
+
+.nebulaStyleLinkDark{
+    font-weight: bold;
+    color: $innerNebulaDark;
+    filter: brightness(150%);
+
+    &:hover{
+        font-weight: bold;
+        color: $innerNebulaLight;
+    }
+}

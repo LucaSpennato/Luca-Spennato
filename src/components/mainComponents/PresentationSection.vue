@@ -1,26 +1,37 @@
 <template>
-  <section id="presentation" class="container pt-3 pb-5 position-relative" :ref="'presentationSection'">
+  <section id="presentation" class="container position-relative" :ref="'presentationSection'">
     <div class="row">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto mb-2 test">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 mb-2">
             <h5>
                 Hi! I'm
             </h5>
-            <h1 class="pageStyleWordLight text-capitalize">
-                Luca Spennato!
+            <h1 class="pageStyleWordLight text-capitalize display-2 fw-bold">
+                Luca Spennato
             </h1>
             <h5>
-                and i am a
+                And i am a
             </h5>
-            <h3 class="pageStyleWordDark text-capitalize">
-                junior full stack web developer
-                </h3>
-            <div class="img-container">
+            <h1 class="pageStyleWordDark text-capitalize">
+                junior <br> full stack web developer
+            </h1>
+            <a class="img-container" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
                 <img id="orion" :src="require('../../assets/img/orion.png')" alt="orion constellation">
-                <img id="canis" :src="require('../../assets/img/canismajoris.png')" alt="pleiades constellation">
-            </div>
+                <img id="canis" :src="require('../../assets/img/canismajoris.png')" alt="canis majoris constellation">
+                <img id="canisMinor" :src="require('../../assets/img/canisminor.png')" alt="canis minor constellation">
+            </a>
         </div>
-        <div class="col-7 m-auto">
-           
+        <div class="head-infos col-12 col-md-5 offset-md-7 mt-5 justify-content-end pe-5">
+            <h5>
+                <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
+                <span class="pageStyleWordDark">knowledge</span>, 
+                I decided to <span class="pageStyleWordDark">change</span> 
+                and <span class="pageStyleWordLight">improve</span> my life by enrolling in 
+                <a href="https://boolean.careers/" target="_blank" class="nebulaStyleLinkLight">Boolean Careers</a> 's 
+                prestigious online bootcamp, making web development my life. 
+            </h5>
+            <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
+                Learn more about Orion and his doggos
+            </a>
         </div>
     </div>
   </section>
@@ -35,16 +46,16 @@ export default {
         }
     },
     methods:{
-    $_scrollSpy(){
-      this.currentScrollYPosition = window.scrollY;
+        $_scrollSpy(){
+        this.currentScrollYPosition = window.scrollY;
 
-      let { offsetTop, offsetHeight } = this.$refs.presentationSection;
+        let { offsetTop, offsetHeight } = this.$refs.presentationSection;
 
-      if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-        this.$emit('sectionInfos', 0);
-      }
-          
-    },
+        if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
+            this.$emit('sectionInfos', 0);
+        }
+            
+        },
   },
   created() {
       window.addEventListener('scroll', this.$_scrollSpy);
@@ -58,14 +69,15 @@ export default {
 <style lang="scss" scoped>
 
     #presentation{
-        
+        min-height: 75vh;
+
         .img-container{
             transform: rotate(20deg);
             position: absolute;
-            top: 0;
-            left: 10%;
-            z-index: -1;
+            top: 10%;
+            right: 20%;
             img{
+                cursor: pointer;
                 width: 10rem;
             }
             #orion{
@@ -73,12 +85,19 @@ export default {
                 filter: invert(100%);
             }
             #canis{
-                transform: rotateX(200deg);
                 position: inherit;
                 right: 0;
                 animation: canis 20s linear infinite;
                 width: 5rem;
                 filter: grayscale(80%) opacity(100%) brightness(150%);
+            }
+            #canisMinor{
+                position: inherit;
+                left: 50%;
+                bottom: 0;
+                transform: rotate(-30deg);
+                animation: canisMinor 20s linear infinite;
+                width: 5rem;
             }
         }
         @keyframes orion {
@@ -103,9 +122,26 @@ export default {
                 transform: translate(20%);
             }
         }
+        @keyframes canisMinor {
+            0%{
+                transform: translate(20%, 20%);
+            }
+            50%{
+                transform: translate(50%, 50%);
+            }
+            100%{
+                transform: translate(20%, 20%);
+            }
+        }
 
+        @media screen and (max-width: 768px){
+            .img-container{
+                z-index: -1;
+            }
+        }
+
+        // animation in mobiles
         @media screen and (max-width: 400px) {
-        
             #canis{
                 position: inherit;
                 right:  0;

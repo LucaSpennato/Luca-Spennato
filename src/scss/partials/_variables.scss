@@ -8,7 +8,9 @@ $innerNebulaDark:#5643fd;
 
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,600;1,200;1,600&display=swap');
-$mainFont: 'Titillium Web', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,500;1,600&display=swap');
+$mainFont: 'Poppins', sans-serif;
+$secondaryFont: 'Titillium Web', sans-serif;
 
 // bgs
 $bodyColor: radial-gradient(ellipse at bottom, $outerSpaceLight 0%, $outerSpaceDark 100%);
