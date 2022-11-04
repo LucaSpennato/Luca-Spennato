@@ -2,6 +2,8 @@
   
     <main class="container-fluid py-5 my-5 text-light">
 
+        <PresentationSection />
+
         <AboutSection @sectionInfos="$_sectionInfos" />
 
         <SkillsSection @sectionInfos="$_sectionInfos" />
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import PresentationSection from '../components/mainComponents/PresentationSection.vue';
 import AboutSection from '../components/mainComponents/AboutSection.vue';
 import SkillsSection from '../components/mainComponents/SkillsSection.vue';
 import WorksSection from '../components/mainComponents/WorksSection.vue';
@@ -20,6 +23,7 @@ import WorksSection from '../components/mainComponents/WorksSection.vue';
 export default {
     name: 'MainComponent',
     components:{
+        PresentationSection,
         AboutSection,
         SkillsSection,
         WorksSection,
@@ -39,6 +43,5 @@ export default {
 </script>
 
 <style lang="scss">
-
 
 </style>
