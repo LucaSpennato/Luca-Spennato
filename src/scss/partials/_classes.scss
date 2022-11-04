@@ -1,0 +1,11 @@
+@import './variables';
+
+.pageStyleWordLight{
+    font-weight: bold;
+    color: $innerNebulaLight;
+}
+
+.pageStyleWordDark{
+    font-weight: bold;
+    color: $innerNebulaDark;
+}
