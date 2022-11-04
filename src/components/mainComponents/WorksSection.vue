@@ -35,23 +35,18 @@ export default {
       worksCarousel: [
         {
           text: '1',
-          isActive: true,
         },
         {
           text: '2',
-          isActive: false,
         },
         {
           text: '3',
-          isActive: false,
         },
         {
           text: '4',
-          isActive: false,
         },
         {
           text: '5',
-          isActive: false,
         },
       ]
     }
@@ -78,8 +73,18 @@ export default {
     $_previousSlideOnClick(){
      if(this.currentWork === 0){
       this.currentWork = this.worksCarousel.length - 1;
+      if(this.currentWork === this.worksCarousel.length - 1){
+        this.prevWork = this.worksCarousel.length - 2;
+        this.nextWork = 0;
+      }
      }else{
       this.currentWork--;
+        this.nextWork = this.currentWork +1;
+      if(this.currentWork === 0){
+        this.prevWork = this.worksCarousel.length -1;
+      }else{
+        this.prevWork = this.currentWork -1;
+      }
      }
       
     },
