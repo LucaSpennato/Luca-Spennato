@@ -1,6 +1,6 @@
 <template>
   
-    <main class="container-fluid my-5 text-light">
+    <main class="container-fluid text-light">
 
         <PresentationSection @sectionInfos="$_sectionInfos" />
 

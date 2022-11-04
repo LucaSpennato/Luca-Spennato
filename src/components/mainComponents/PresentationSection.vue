@@ -1,7 +1,7 @@
 <template>
-  <section id="presentation" class="container position-relative" :ref="'presentationSection'">
+  <section id="presentation" class="container my-5 position-relative" :ref="'presentationSection'">
     <div class="row">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 mb-2">
+        <div class="col-12 col-sm-10 col-lg-8 mb-2">
             <h5>
                 Hi! I'm
             </h5>
@@ -20,15 +20,15 @@
                 <img id="canisMinor" :src="require('../../assets/img/canisminor.png')" alt="canis minor constellation">
             </a>
         </div>
-        <div class="head-infos col-12 col-md-5 offset-md-7 mt-5 justify-content-end pe-5">
-            <h5>
+        <div class="head-infos col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
+            <h6>
                 <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
                 <span class="pageStyleWordDark">knowledge</span>, 
                 I decided to <span class="pageStyleWordDark">change</span> 
                 and <span class="pageStyleWordLight">improve</span> my life by enrolling in 
                 <a href="https://boolean.careers/" target="_blank" class="nebulaStyleLinkLight">Boolean Careers</a> 's 
                 prestigious online bootcamp, making web development my life. 
-            </h5>
+            </h6>
             <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
                 Learn more about Orion and his doggos
             </a>
