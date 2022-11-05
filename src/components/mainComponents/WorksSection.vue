@@ -1,26 +1,25 @@
 <template>
-  <section id="works" class="container py-5">
-    <div class="row">
-      <div class="col-12 m-auto mb-3">
-         <h4 class="pageStyleWordLight text-capitalize">
-          Works i've done
-        </h4>
-      </div>
-      <div class="col-12 m-auto">
-        <button class="btn btn-danger" @click="$_previousSlideOnClick()">Prev</button>
-        <div class="fs-5 text-center">
-          {{ worksCarousel[prevWork].text }}
-        </div>
-        <div class="display-2 text-center" :class=" i === currentWork ? 'd-block' : 'd-none' " v-for="(work, i) in worksCarousel" :key="i">
-          {{ work.text }}
-        </div>
-        <div class="fs-5 text-center">
-          {{ worksCarousel[nextWork].text }}
-        </div>
-        <button class="btn btn-danger" @click="$_nextSlideOnClick()">Next</button>
-      </div>
-    
+  <section id="works" class="row">
+  
+    <div class="col-12 m-auto mb-3">
+        <h4 class="pageStyleWordLight text-capitalize">
+        Works i've done
+      </h4>
     </div>
+    <div class="col-12 m-auto">
+      <button class="btn btn-danger" @click="$_previousSlideOnClick()">Prev</button>
+      <div class="fs-5 text-center">
+        {{ worksCarousel[prevWork].text }}
+      </div>
+      <div class="display-2 text-center" :class=" i === currentWork ? 'd-block' : 'd-none' " v-for="(work, i) in worksCarousel" :key="i">
+        {{ work.text }}
+      </div>
+      <div class="fs-5 text-center">
+        {{ worksCarousel[nextWork].text }}
+      </div>
+      <button class="btn btn-danger" @click="$_nextSlideOnClick()">Next</button>
+    </div>
+   
   </section>
 </template>
 

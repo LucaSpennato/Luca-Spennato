@@ -2,16 +2,16 @@
   
     <main>
 
-        <div class="container-fluid p-0 m-0" :ref="'presentationSection'" currentScrollData="0">
+        <div class="container my-5" :ref="'presentationSection'" currentScrollData="0">
           <PresentationSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'aboutSection'" currentScrollData="1">
+        <div class="container py-5" :ref="'aboutSection'" currentScrollData="1">
           <AboutSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'skillsSection'" currentScrollData="2">
+        <div class="container py-5" :ref="'skillsSection'" currentScrollData="2">
           <SkillsSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'worksSection'" currentScrollData="3">
+        <div class="container py-5" :ref="'worksSection'" currentScrollData="3">
           <WorksSection />
         </div>
 
