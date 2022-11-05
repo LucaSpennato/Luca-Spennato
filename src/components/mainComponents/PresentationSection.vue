@@ -1,68 +1,45 @@
 <template>
-  <section id="presentation" class="container my-5 position-relative" :ref="'presentationSection'">
-    <div class="row">
-        <div class="col-12 col-sm-10 col-lg-8 mb-2">
-            <h5>
-                Hi! I'm
-            </h5>
-            <h1 class="pageStyleWordLight text-capitalize display-2 fw-bold">
-                Luca Spennato
-            </h1>
-            <h5>
-                And i am a
-            </h5>
-            <h1 class="pageStyleWordDark text-capitalize">
-                junior <br> full stack web developer
-            </h1>
-            <a class="img-container" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
-                <img id="orion" :src="require('../../assets/img/orion.png')" alt="orion constellation">
-                <img id="canis" :src="require('../../assets/img/canismajoris.png')" alt="canis majoris constellation">
-                <img id="canisMinor" :src="require('../../assets/img/canisminor.png')" alt="canis minor constellation">
-            </a>
-        </div>
-        <div class="head-infos col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
-            <h6>
-                <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
-                <span class="pageStyleWordDark">knowledge</span>, 
-                I decided to <span class="pageStyleWordDark">change</span> 
-                and <span class="pageStyleWordLight">improve</span> my life by enrolling in 
-                <a href="https://boolean.careers/" target="_blank" class="nebulaStyleLinkLight">Boolean Careers</a> 's 
-                prestigious online bootcamp, making web development my life. 
-            </h6>
-            <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
-                Learn more about Orion and his doggos
-            </a>
-        </div>
+  <section id="presentation" class="row position-relative">
+ 
+    <div class="col-12 col-sm-10 col-lg-8 mb-2">
+        <h5>
+            Hi! I'm
+        </h5>
+        <h1 class="pageStyleWordLight text-capitalize display-2 fw-bold">
+            Luca Spennato
+        </h1>
+        <h5>
+            And i am a
+        </h5>
+        <h1 class="pageStyleWordDark text-capitalize">
+            junior <br> full stack web developer
+        </h1>
+        <a class="img-container" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
+            <img id="orion" :src="require('../../assets/img/orion.png')" alt="orion constellation">
+            <img id="canis" :src="require('../../assets/img/canismajoris.png')" alt="canis majoris constellation">
+            <img id="canisMinor" :src="require('../../assets/img/canisminor.png')" alt="canis minor constellation">
+        </a>
     </div>
+    <div class="head-infos col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
+        <h6>
+            <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
+            <span class="pageStyleWordDark">knowledge</span>, 
+            I decided to <span class="pageStyleWordDark">change</span> 
+            and <span class="pageStyleWordLight">improve</span> my life by enrolling in 
+            <a href="https://boolean.careers/" target="_blank" class="nebulaStyleLinkLight">Boolean Careers</a> 's 
+            prestigious online bootcamp, making web development my life. 
+        </h6>
+        <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
+            Learn more about Orion and his doggos
+        </a>
+    </div>
+   
   </section>
 </template>
 
 <script>
 export default {
-    name: 'PresentationSection',
-    data(){
-        return{
-
-        }
-    },
-    methods:{
-        $_scrollSpy(){
-        this.currentScrollYPosition = window.scrollY;
-
-        let { offsetTop, offsetHeight } = this.$refs.presentationSection;
-
-        if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-            this.$emit('sectionInfos', 0);
-        }
-            
-        },
-  },
-  created() {
-      window.addEventListener('scroll', this.$_scrollSpy);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.$_scrollSpy);
-  },
+ name: 'PresentationSection',
 }
 </script>
 

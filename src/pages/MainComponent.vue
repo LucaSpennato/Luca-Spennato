@@ -1,14 +1,21 @@
 <template>
   
-    <main class="container-fluid text-light">
+    <main>
 
-        <PresentationSection @sectionInfos="$_sectionInfos" />
+        <div class="container my-5" :ref="'presentationSection'" currentScrollData="0">
+          <PresentationSection  />
+        </div>
+        <div class="container py-5" :ref="'aboutSection'" currentScrollData="1">
+          <AboutSection  />
+        </div>
+        <div class="container py-5" :ref="'skillsSection'" currentScrollData="2">
+          <SkillsSection  />
+        </div>
+        <div class="container py-5" :ref="'worksSection'" currentScrollData="3">
+          <WorksSection />
+        </div>
 
-        <AboutSection @sectionInfos="$_sectionInfos" />
 
-        <SkillsSection @sectionInfos="$_sectionInfos" />
-
-        <WorksSection @sectionInfos="$_sectionInfos" />
 
           <!-- <div id="goUpArrow" class="nebulaStyleLinkDark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
@@ -41,9 +48,26 @@ export default {
       }
     },
     methods:{
-      $_sectionInfos(params){
-        this.$emit('currentSectionOnScroll', params);
+      $_scrollSpyFilter(sectionRef){
+        let { offsetTop, offsetHeight, attributes : { currentScrollData } } = sectionRef;
+            if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+              this.$emit('currentSectionOnScroll', currentScrollData.value);
+        }
       },
+      $_scrollSpy(){
+        this.currentScrollYPosition = window.scrollY;
+        this.$_scrollSpyFilter(this.$refs.presentationSection);
+        this.$_scrollSpyFilter(this.$refs.aboutSection);
+        this.$_scrollSpyFilter(this.$refs.skillsSection);
+        this.$_scrollSpyFilter(this.$refs.worksSection);
+        
+      },
+    },
+    created() {
+      window.addEventListener('scroll', this.$_scrollSpy);
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.$_scrollSpy);
     },
 }
 </script>
