@@ -1,17 +1,17 @@
 <template>
   
-    <main class="container-fluid text-light">
+    <main>
 
-        <div class="container-fluid p-0 m-0" :ref="'presentationSection'">
+        <div class="container-fluid p-0 m-0" :ref="'presentationSection'" currentScrollData="0">
           <PresentationSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'aboutSection'">
+        <div class="container-fluid p-0 m-0" :ref="'aboutSection'" currentScrollData="1">
           <AboutSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'skillsSection'">
+        <div class="container-fluid p-0 m-0" :ref="'skillsSection'" currentScrollData="2">
           <SkillsSection  />
         </div>
-        <div class="container-fluid p-0 m-0" :ref="'worksSection'">
+        <div class="container-fluid p-0 m-0" :ref="'worksSection'" currentScrollData="3">
           <WorksSection />
         </div>
 
@@ -48,18 +48,18 @@ export default {
       }
     },
     methods:{
-      $_scrollSpyFilter(sectionRef, sectionPosition){
-        let { offsetTop, offsetHeight } = sectionRef;
+      $_scrollSpyFilter(sectionRef){
+        let { offsetTop, offsetHeight, attributes : { currentScrollData } } = sectionRef;
             if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
-              this.$emit('currentSectionOnScroll', sectionPosition);
+              this.$emit('currentSectionOnScroll', currentScrollData.value);
         }
       },
       $_scrollSpy(){
         this.currentScrollYPosition = window.scrollY;
-        this.$_scrollSpyFilter(this.$refs.presentationSection, 0);
-        this.$_scrollSpyFilter(this.$refs.aboutSection, 1);
-        this.$_scrollSpyFilter(this.$refs.skillsSection, 2);
-        this.$_scrollSpyFilter(this.$refs.worksSection, 3);
+        this.$_scrollSpyFilter(this.$refs.presentationSection);
+        this.$_scrollSpyFilter(this.$refs.aboutSection);
+        this.$_scrollSpyFilter(this.$refs.skillsSection);
+        this.$_scrollSpyFilter(this.$refs.worksSection);
         
       },
     },
