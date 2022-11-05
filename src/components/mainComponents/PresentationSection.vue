@@ -12,15 +12,18 @@
             And i am a
         </h5>
         <h1 class="pageStyleWordDark text-capitalize">
-            junior <br> full stack web developer
+            full stack web developer
         </h1>
-        <a class="img-container" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
-            <img id="orion" :src="require('../../assets/constellations/orion.png')" alt="orion constellation">
-            <img id="canis" :src="require('../../assets/constellations/canismajoris.png')" alt="canis majoris constellation">
-            <img id="canisMinor" :src="require('../../assets/constellations/canisminor.png')" alt="canis minor constellation">
+        <a class="img-container up-img" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
+            <img id="orion" :src="require('../../assets/constellations/msorionBgT.png')" alt="orion constellation">
+            <img id="canis" :src="require('../../assets/constellations/mscanismajorisBgT.png')" alt="canis majoris constellation">
+            <img id="canisMinor" :src="require('../../assets/constellations/mscanisminorBgT.png')" alt="canis minor constellation">
         </a>
     </div>
-    <div class="head-infos col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
+    <div class="col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
+        <a href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank" class="img-container down-img">
+            <img id="scorpio" :src="require('../../assets/constellations/msscorpioBgT.png')" alt="scorpio constellation">
+        </a>
         <h6>
             <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
             <span class="pageStyleWordDark">knowledge</span>, 
@@ -30,7 +33,7 @@
             prestigious online bootcamp, making web development my life. 
         </h6>
         <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
-            Learn more about Orion and his doggos
+            Scorpio, Orion and his doggos
         </a>
     </div>
    
@@ -51,22 +54,27 @@ export default {
         .img-container{
             transform: rotate(20deg);
             position: absolute;
-            top: 10%;
-            right: 20%;
+            &.up-img{
+                top: 10%;
+                right: 20%;
+            }
+            &.down-img{
+                bottom: 10%;
+                left: 20%;
+            }
             img{
                 cursor: pointer;
-                width: 10rem;
+                filter: invert(100%);
             }
             #orion{
+                width: 10rem;
                 animation: orion 20s linear infinite;
-                filter: invert(100%);
             }
             #canis{
                 position: inherit;
                 right: 0;
                 animation: canis 20s linear infinite;
                 width: 5rem;
-                filter: grayscale(80%) opacity(100%) brightness(150%);
             }
             #canisMinor{
                 position: inherit;
@@ -75,6 +83,10 @@ export default {
                 transform: rotate(-30deg);
                 animation: canisMinor 20s linear infinite;
                 width: 5rem;
+            }
+            #scorpio{
+                width: 16rem;
+                animation: scorpio 20s linear infinite;
             }
         }
         @keyframes orion {
@@ -110,10 +122,37 @@ export default {
                 transform: translate(20%, 20%);
             }
         }
+        @keyframes scorpio {
+            0%{
+                transform: translate(-40%, 20%);
+            }
+            50%{
+                transform: translate(-5%, -10%);
+            }
+            100%{
+                transform: translate(-40%, 20%);
+            }
+        }
 
-        @media screen and (max-width: 768px){
+        @media screen and (max-width: 991.98px){
             .img-container{
                 z-index: -1;
+                #scorpio{
+                   position: relative;
+                   top: 9rem;
+                   width: 10rem;
+                }
+            }
+            @keyframes scorpio {
+                0%{
+                    transform: translate(0);
+                }
+                50%{
+                    transform: translate(30%);
+                }
+                100%{
+                    transform: translate(0);
+                }
             }
         }
 
@@ -141,16 +180,26 @@ export default {
                     transform: translate(-20%, -40%);
                 }
                 50%{
-                    transform: translate(30%, -60%);
+                    transform: translate(-40%, -60%);
                 }
                 100%{
                     transform: translate(-20%, -40%);
                 }
             }
+
+            @keyframes canisMinor {
+            0%{
+                transform: translate(10%, 20%);
+            }
+            50%{
+                transform: translate(30%, 50%);
+            }
+            100%{
+                transform: translate(10%, 20%);
+            }
+        }
         }
         
-
-
     }
 
 
