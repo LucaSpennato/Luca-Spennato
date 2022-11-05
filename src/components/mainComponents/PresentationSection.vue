@@ -24,14 +24,14 @@
         <a href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank" class="img-container down-img">
             <img id="scorpio" :src="require('../../assets/constellations/msscorpioBgT.png')" alt="scorpio constellation">
         </a>
-        <h6>
+        <h5>
             <span class="pageStyleWordLight">Inspired</span> by my constant desire for 
             <span class="pageStyleWordDark">knowledge</span>, 
             I decided to <span class="pageStyleWordDark">change</span> 
             and <span class="pageStyleWordLight">improve</span> my life by enrolling in 
             <a href="https://boolean.careers/" target="_blank" class="nebulaStyleLinkLight">Boolean Careers</a> 's 
             prestigious online bootcamp, making web development my life. 
-        </h6>
+        </h5>
         <a class="d-block nebulaStyleLinkDark" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
             Scorpio, Orion and his doggos
         </a>
@@ -70,19 +70,18 @@ export default {
                 width: 10rem;
                 animation: orion 20s linear infinite;
             }
-            #canis{
+            #canis, #canisMinor{
                 position: inherit;
-                right: 0;
-                animation: canis 20s linear infinite;
                 width: 5rem;
             }
+            #canis{
+                right: 0;
+                animation: canis 20s linear infinite;
+            }
             #canisMinor{
-                position: inherit;
                 left: 50%;
                 bottom: 0;
-                transform: rotate(-30deg);
                 animation: canisMinor 20s linear infinite;
-                width: 5rem;
             }
             #scorpio{
                 width: 16rem;
