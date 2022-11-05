@@ -1,5 +1,5 @@
 <template>
-  <section id="works" class="container py-5" :ref="'worksSection'">
+  <section id="works" class="container py-5">
     <div class="row">
       <div class="col-12 m-auto mb-3">
          <h4 class="pageStyleWordLight text-capitalize">
@@ -94,27 +94,27 @@ export default {
      }
       
     },
-    $_scrollSpy(){
-      this.currentScrollYPosition = window.scrollY;
+    // $_scrollSpy(){
+    //   this.currentScrollYPosition = window.scrollY;
 
-      let { offsetTop, offsetHeight } = this.$refs.worksSection;
+    //   let { offsetTop, offsetHeight } = this.$refs.worksSection;
 
-      if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
-        this.$emit('sectionInfos', 3);
-      }
+    //   if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+    //     this.$emit('sectionInfos', 3);
+    //   }
           
-    },
+    // },
     $_prevWorkDynamicOnCreated(){
       this.prevWork = this.worksCarousel.length -1;
     }
   },
   created() {
     this.$_prevWorkDynamicOnCreated();
-    window.addEventListener('scroll', this.$_scrollSpy);
+    // window.addEventListener('scroll', this.$_scrollSpy);
   },
-  destroyed() {
-    window.removeEventListener('scroll', this.$_scrollSpy);
-  },
+  // destroyed() {
+  //   window.removeEventListener('scroll', this.$_scrollSpy);
+  // },
 }
 </script>
 

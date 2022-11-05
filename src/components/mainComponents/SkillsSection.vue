@@ -1,5 +1,5 @@
 <template>
-  <section id="skills" class="container py-5" :ref="'skillsSection'">
+  <section id="skills" class="container py-5">
     <div class="row">
       <div class="col-8 m-auto mb-3">
         <h4 class="pageStyleWordLight text-capitalize">
@@ -32,22 +32,22 @@ export default {
       }
     },
     methods:{
-  $_scrollSpy(){
-    this.currentScrollYPosition = window.scrollY;
-    let { offsetTop, offsetHeight } = this.$refs.skillsSection;
-        if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
-          this.$emit('sectionInfos', 2);
-        }
+  // $_scrollSpy(){
+  //   this.currentScrollYPosition = window.scrollY;
+  //   let { offsetTop, offsetHeight } = this.$refs.skillsSection;
+  //       if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+  //         this.$emit('sectionInfos', 2);
+  //       }
         
-      },
+  //     },
   },
 
-  created() {
-      window.addEventListener('scroll', this.$_scrollSpy);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.$_scrollSpy);
-  },
+  // created() {
+  //     window.addEventListener('scroll', this.$_scrollSpy);
+  // },
+  // destroyed() {
+  //   window.removeEventListener('scroll', this.$_scrollSpy);
+  // },
 }
 </script>
 

@@ -2,13 +2,21 @@
   
     <main class="container-fluid text-light">
 
-        <PresentationSection @sectionInfos="$_sectionInfos" />
+        <div class="container-fluid p-0 m-0" :ref="'presentationSection'">
+          <PresentationSection  />
+        </div>
 
-        <AboutSection @sectionInfos="$_sectionInfos" />
+        <div class="container-fluid p-0 m-0" :ref="'aboutSection'">
+          <AboutSection  />
+        </div>
+        <div class="container-fluid p-0 m-0" :ref="'skillsSection'">
+          <SkillsSection  />
+        </div>
+        <div class="container-fluid p-0 m-0" :ref="'worksSection'">
+          <WorksSection />
+        </div>
 
-        <SkillsSection @sectionInfos="$_sectionInfos" />
 
-        <WorksSection @sectionInfos="$_sectionInfos" />
 
           <!-- <div id="goUpArrow" class="nebulaStyleLinkDark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
@@ -41,9 +49,29 @@ export default {
       }
     },
     methods:{
-      $_sectionInfos(params){
-        this.$emit('currentSectionOnScroll', params);
+      // $_sectionInfos(params){
+      //   this.$emit('currentSectionOnScroll', params);
+      // },
+      $_scrollSpyFilter(sectionRef, sectionPosition){
+        let { offsetTop, offsetHeight } = sectionRef;
+            if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
+              this.$emit('currentSectionOnScroll', sectionPosition);
+        }
       },
+      $_scrollSpy(){
+        this.currentScrollYPosition = window.scrollY;
+        this.$_scrollSpyFilter(this.$refs.presentationSection, 0);
+        this.$_scrollSpyFilter(this.$refs.aboutSection, 1);
+        this.$_scrollSpyFilter(this.$refs.skillsSection, 2);
+        this.$_scrollSpyFilter(this.$refs.worksSection, 3);
+        
+      },
+    },
+    created() {
+      window.addEventListener('scroll', this.$_scrollSpy);
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.$_scrollSpy);
     },
 }
 </script>

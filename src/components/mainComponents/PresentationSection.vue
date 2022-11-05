@@ -1,5 +1,5 @@
 <template>
-  <section id="presentation" class="container my-5 position-relative" :ref="'presentationSection'">
+  <section id="presentation" class="container my-5 position-relative">
     <div class="row">
         <div class="col-12 col-sm-10 col-lg-8 mb-2">
             <h5>
@@ -46,23 +46,23 @@ export default {
         }
     },
     methods:{
-        $_scrollSpy(){
-        this.currentScrollYPosition = window.scrollY;
+        // $_scrollSpy(){
+        // this.currentScrollYPosition = window.scrollY;
 
-        let { offsetTop, offsetHeight } = this.$refs.presentationSection;
+        // let { offsetTop, offsetHeight } = this.$refs.presentationSection;
 
-        if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-            this.$emit('sectionInfos', 0);
-        }
+        // if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
+        //     this.$emit('sectionInfos', 0);
+        // }
             
-        },
+        // },
   },
-  created() {
-      window.addEventListener('scroll', this.$_scrollSpy);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.$_scrollSpy);
-  },
+//   created() {
+//       window.addEventListener('scroll', this.$_scrollSpy);
+//   },
+//   destroyed() {
+//     window.removeEventListener('scroll', this.$_scrollSpy);
+//   },
 }
 </script>
 
