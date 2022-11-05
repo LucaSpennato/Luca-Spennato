@@ -29,7 +29,7 @@ export default {
   name: 'WorksSection',
   data(){
     return{
-      prevWork: 4,
+      prevWork: null,
       currentWork: 0,
       nextWork: 1,
       worksCarousel: [
@@ -47,6 +47,12 @@ export default {
         },
         {
           text: '5',
+        },
+        {
+          text: '6',
+        },
+        {
+          text: '7',
         },
       ]
     }
@@ -98,9 +104,13 @@ export default {
       }
           
     },
+    $_prevWorkDynamicOnCreated(){
+      this.prevWork = this.worksCarousel.length -1;
+    }
   },
   created() {
-      window.addEventListener('scroll', this.$_scrollSpy);
+    this.$_prevWorkDynamicOnCreated();
+    window.addEventListener('scroll', this.$_scrollSpy);
   },
   destroyed() {
     window.removeEventListener('scroll', this.$_scrollSpy);
