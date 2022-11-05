@@ -5,7 +5,6 @@
         <div class="container-fluid p-0 m-0" :ref="'presentationSection'">
           <PresentationSection  />
         </div>
-
         <div class="container-fluid p-0 m-0" :ref="'aboutSection'">
           <AboutSection  />
         </div>
@@ -49,9 +48,6 @@ export default {
       }
     },
     methods:{
-      // $_sectionInfos(params){
-      //   this.$emit('currentSectionOnScroll', params);
-      // },
       $_scrollSpyFilter(sectionRef, sectionPosition){
         let { offsetTop, offsetHeight } = sectionRef;
             if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){

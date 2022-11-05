@@ -25,29 +25,7 @@
 
 <script>
 export default {
-    name: 'SkillsSection',
-    data(){
-      return{
-        currentScrollYPosition: 0,
-      }
-    },
-    methods:{
-  // $_scrollSpy(){
-  //   this.currentScrollYPosition = window.scrollY;
-  //   let { offsetTop, offsetHeight } = this.$refs.skillsSection;
-  //       if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
-  //         this.$emit('sectionInfos', 2);
-  //       }
-        
-  //     },
-  },
-
-  // created() {
-  //     window.addEventListener('scroll', this.$_scrollSpy);
-  // },
-  // destroyed() {
-  //   window.removeEventListener('scroll', this.$_scrollSpy);
-  // },
+  name: 'SkillsSection',
 }
 </script>
 

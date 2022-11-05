@@ -25,27 +25,6 @@
 <script>
 export default {
   name: 'AboutSection',
-  data(){
-    return{
-      currentScrollYPosition: 0,
-    }
-  },
-  methods:{
-    // $_scrollSpy(){
-    // this.currentScrollYPosition = window.scrollY;
-    // let { offsetTop, offsetHeight } = this.$refs.aboutSection;
-    //     if(this.currentScrollYPosition >= offsetTop - 100 && this.currentScrollYPosition < offsetHeight + offsetTop){
-    //       this.$emit('sectionInfos', 1);
-    //     }
-    //   },
-  },
-
-  // created() {
-  //     window.addEventListener('scroll', this.$_scrollSpy);
-  // },
-  // destroyed() {
-  //   window.removeEventListener('scroll', this.$_scrollSpy);
-  // },
 }
 </script>
 

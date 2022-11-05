@@ -39,30 +39,7 @@
 
 <script>
 export default {
-    name: 'PresentationSection',
-    data(){
-        return{
-
-        }
-    },
-    methods:{
-        // $_scrollSpy(){
-        // this.currentScrollYPosition = window.scrollY;
-
-        // let { offsetTop, offsetHeight } = this.$refs.presentationSection;
-
-        // if(this.currentScrollYPosition >= offsetTop - 150 && this.currentScrollYPosition < offsetHeight + offsetTop){
-        //     this.$emit('sectionInfos', 0);
-        // }
-            
-        // },
-  },
-//   created() {
-//       window.addEventListener('scroll', this.$_scrollSpy);
-//   },
-//   destroyed() {
-//     window.removeEventListener('scroll', this.$_scrollSpy);
-//   },
+ name: 'PresentationSection',
 }
 </script>
 
