@@ -15,9 +15,9 @@
             junior <br> full stack web developer
         </h1>
         <a class="img-container" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">
-            <img id="orion" :src="require('../../assets/img/orion.png')" alt="orion constellation">
-            <img id="canis" :src="require('../../assets/img/canismajoris.png')" alt="canis majoris constellation">
-            <img id="canisMinor" :src="require('../../assets/img/canisminor.png')" alt="canis minor constellation">
+            <img id="orion" :src="require('../../assets/constellations/orion.png')" alt="orion constellation">
+            <img id="canis" :src="require('../../assets/constellations/canismajoris.png')" alt="canis majoris constellation">
+            <img id="canisMinor" :src="require('../../assets/constellations/canisminor.png')" alt="canis minor constellation">
         </a>
     </div>
     <div class="head-infos col-12 col-lg-5 offset-lg-7 mt-3 mt-sm-5 pe-lg-5">
