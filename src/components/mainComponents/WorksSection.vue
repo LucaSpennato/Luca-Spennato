@@ -8,40 +8,45 @@
     </div>
     <div class="col-12 m-auto">
 
-      <!-- Buttons -->
-      <div class="btns-field my-3">
-        <span class="mx-2" @click="$_nextSlideOnClick()">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-        </svg>
-        </span>
-        <span class="mx-2" @click="$_previousSlideOnClick()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-          </svg>
-        </span>
-      </div>
-
       <!-- Images -->
-      <div id="carousel-imgs-wrapper">
-          <div class="prevWork">
+      <div id="carousel-imgs-wrapper" class="row">
+          <div class="prevWork d-none d-lg-block col-3">
             <!-- <img :src="worksCarousel[prevWork].src" alt="" :class="sideLeft"> -->
              <Transition :name="rightSideAnimation">
-                <img :src="worksCarousel[prevWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedPath(worksCarousel[prevWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
-          <div class="currentWork">
+          <div class="currentWork col-12 col-lg-6">
             <Transition :name="transitionFadeAnimation">
-                <img :src="worksCarousel[currentWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedPath(worksCarousel[currentWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
-          <div class="nextWork"> 
+          <div class="nextWork d-none d-lg-block col-3"> 
              <Transition :name="leftSideAnimation">
-                <img :src="worksCarousel[nextWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedPath(worksCarousel[nextWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
             <!-- <img :src="worksCarousel[nextWork].src" alt="" :class="sideRight"> -->
+          </div>
+
+           <!-- Buttons -->
+            <div class="btns-field my-3">
+              <span class="mx-2" @click="$_nextSlideOnClick()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+              </svg>
+              </span>
+              <span class="mx-2" @click="$_previousSlideOnClick()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                </svg>
+              </span>
+            </div>
+
+          <div class="col-12 my-4">
+           <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sed ipsa modi quasi vitae mollitia laboriosam, ducimus perferendis veniam aut cumque aperiam facere, sequi impedit quibusdam quia voluptatem eos porro!</div>
+           <div class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta aliquam magnam quaerat officia impedit ipsum quisquam quo, mollitia provident eos error hic totam quos quas optio dolore fugit ipsam?</div>
           </div>
       </div>
 
@@ -63,34 +68,47 @@ export default {
       nextWork: 1,
       worksCarousel: [
         {
-          text: '1',
-          src: 'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
+          text: 'laravel backOffice',
+          src: 'backend',
           isActive: true,
         },
         {
-          text: '2',
-          src: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg',
+          text: 'boolflix search feature',
+          src: 'boolflix',
           isActive: false,
         },
         {
-          text: '3',
-          src: 'https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=MQGvBmuo',
+          text: 'boolzapp web clone',
+          src: 'boolzapp',
           isActive: false,
         },
         {
-          text: '4',
-          src: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg',
+          text: 'dc comics frontend clone',
+          src: 'dccomics',
+          isActive: false,
+        },
+        {
+          text: 'dropbox frontend clone',
+          src: 'dropbox',
+          isActive: false,
+        },
+        {
+          text: 'playstation frontend clone',
+          src: 'playstation',
+          isActive: false,
+        },
+        {
+          text: 'spotify frontend clone',
+          src: 'spotify',
           isActive: false,
         },
       ]
     }
   },
-  computed:{
-    animatedClass(){
-      return this.worksCarousel[this.currentWork].isActive ? 'sidePicFade' : 'opacity-0';
-    }
-  },
   methods:{
+    $_fixedPath(string){
+      return require( '../../assets/works/' + string + '.png');
+    },
     $_nextSlideOnClick(){
       if(this.currentWork === this.worksCarousel.length - 1){
         this.currentWork = 0;
@@ -164,15 +182,16 @@ export default {
   @import '../../scss/partials/_variables.scss';
 
   #carousel-imgs-wrapper{
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     .currentWork, .prevWork, .nextWork{
-      margin: 1rem;
+      // margin: 1rem;
         img{
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
           &::selection{
           background-color: transparent;
         }
@@ -180,16 +199,11 @@ export default {
     }
   
     .currentWork{
-      width: 10rem;
-      height: 10rem;
+      // width: 40rem;
+      // height: 40rem;
       z-index: 2;
     }
   
-    .prevWork, .nextWork{
-      // overflow: hidden;
-      width: 5rem;
-      height: 5rem;
-    }
 
     .fade-in-enter-active, 
     .fade-out-enter-active,
@@ -199,28 +213,25 @@ export default {
     .side-outLeft-enter-active{
       transition: all 1s ease-in-out;
     }
-  
-    // .fade-in-enter{
-    //   transform: translateX(100%) scale(.5);
-    // }
-    // .fade-out-enter{
-    //   transform: translateX(-50%) scale(.5);
-    // }
-
-    // .side-out-enter{
-    //   transform: translate(100%);
-    // }
-
-    // .side-in-enter{
-    //   transform: translate(-100%) scale(2);
-    // }
-  
 
     .fade-in-enter{
       transform: translateX(100%) scale(.5);
     }
     .fade-out-enter{
       transform: translateX(-100%) scale(.5);
+    }
+
+    @media screen and (max-width: 991.92px){
+      .fade-in-enter-active, 
+      .fade-out-enter-active{
+        transition: all 300ms ease-in-out;
+      }
+      .fade-in-enter{
+        transform: translateX(50%) scale(.5);
+      }
+      .fade-out-enter{
+        transform: translateX(-50%) scale(.5);
+      }
     }
 
     .side-outRigth-enter{
@@ -242,17 +253,16 @@ export default {
     }
 
   }
-  
-
 
   #works{
-    // min-height: 100vh;
     position: relative;
     .btns-field{
+      display: flex;
+      justify-content: space-between;
       span{
-        position: absolute;
-        z-index: 1;
-        top: 70%;
+        // position: absolute;
+        // top: 30%;
+        z-index: 5;
         &:last-child{
           right: 0;
         }
