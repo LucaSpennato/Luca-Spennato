@@ -6,7 +6,7 @@
         my skills
       </h4>
     </div>
-    <div class="col-8 m-auto">
+    <div class="col-10 m-auto">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore voluptatum impedit aperiam quo expedita porro provident assumenda magnam! Laudantium ad alias doloribus fugit, dignissimos accusamus accusantium blanditiis facere molestias.
       Ut autem exercitationem quam. Nemo necessitatibus doloribus sequi excepturi error debitis explicabo dolores veniam possimus ducimus! At consequuntur officiis facere harum maxime. Eius ipsum magnam id voluptas ducimus eaque velit!
       Pariatur possimus doloremque impedit fugit odit cupiditate temporibus minus explicabo adipisci asperiores accusantium, accusamus voluptatem, dignissimos provident nam amet delectus officiis! Doloremque ratione ipsam exercitationem. Dolorum architecto modi animi voluptates.

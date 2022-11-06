@@ -7,17 +7,38 @@
       </h4>
     </div>
     <div class="col-12 m-auto">
-      <button class="btn btn-danger" @click="$_previousSlideOnClick()">Prev</button>
-      <div class="fs-5 text-center">
-        {{ worksCarousel[prevWork].text }}
+
+      <!-- Buttons -->
+      <div class="btns-field my-3">
+        <span class="mx-2" @click="$_previousSlideOnClick()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+        </span>
+        <span class="mx-2" @click="$_nextSlideOnClick()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg>
+        </span>
       </div>
-      <div class="display-2 text-center" :class=" i === currentWork ? 'd-block' : 'd-none' " v-for="(work, i) in worksCarousel" :key="i">
-        {{ work.text }}
+
+      <!-- Images -->
+      <div id="carousel-imgs-wrapper">
+          <div class="prevWork">
+            <img :src="worksCarousel[prevWork].src" alt="" :class="animatedClass">
+          </div>
+
+          <div class="current">
+            <Transition :name="test">
+                <img :src="worksCarousel[currentWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+            </Transition>
+          </div>
+
+          <div class="nextWork"> 
+            <img :src="worksCarousel[nextWork].src" alt="" :class="animatedClass">
+          </div>
       </div>
-      <div class="fs-5 text-center">
-        {{ worksCarousel[nextWork].text }}
-      </div>
-      <button class="btn btn-danger" @click="$_nextSlideOnClick()">Next</button>
+
     </div>
    
   </section>
@@ -28,32 +49,37 @@ export default {
   name: 'WorksSection',
   data(){
     return{
+      test: '',
       prevWork: null,
       currentWork: 0,
       nextWork: 1,
       worksCarousel: [
         {
           text: '1',
+          src: 'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
+          isActive: true,
         },
         {
           text: '2',
+          src: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg',
+          isActive: false,
         },
         {
           text: '3',
+          src: 'https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=MQGvBmuo',
+          isActive: false,
         },
         {
           text: '4',
-        },
-        {
-          text: '5',
-        },
-        {
-          text: '6',
-        },
-        {
-          text: '7',
+          src: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg',
+          isActive: false,
         },
       ]
+    }
+  },
+  computed:{
+    animatedClass(){
+      return this.worksCarousel[this.currentWork].isActive ? 'sidePicFade' : 'opacity-0';
     }
   },
   methods:{
@@ -72,9 +98,10 @@ export default {
         }else{
           this.nextWork = this.currentWork + 1;
         }
-        
       }
+      this.$_animationClassForSidePic(true);
     },
+
     $_previousSlideOnClick(){
      if(this.currentWork === 0){
       this.currentWork = this.worksCarousel.length - 1;
@@ -91,8 +118,21 @@ export default {
         this.prevWork = this.currentWork -1;
       }
      }
-      
+      this.$_animationClassForSidePic(false);
     },
+
+    $_animationClassForSidePic(condition){
+
+      condition ? this.test = 'fade-in' : this.test = 'fade-out';
+
+       this.worksCarousel.forEach(el =>{
+        el.isActive = false;
+      })
+      setTimeout(() => {
+        this.worksCarousel[this.currentWork].isActive = true;
+      }, 1);
+    },
+
     $_prevWorkDynamicOnCreated(){
       this.prevWork = this.worksCarousel.length -1;
     }
@@ -104,5 +144,89 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  
+  @import '../../scss/partials/_variables.scss';
+
+  .current, .prevWork, .nextWork{
+    overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &::selection{
+        background-color: transparent;
+      }
+    }
+  }
+
+  .current{
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .prevWork, .nextWork{
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .fade-in-enter-active, .fade-out-enter-active{
+    transition: all 200ms ease-in-out;
+  }
+
+  .fade-in-enter, .fade-out-enter{
+    opacity: 0;
+  }
+  .fade-in-enter{
+    transform: translateY(100%);
+  }
+  .fade-out-enter{
+    transform: translateY(-100%);
+  }
+
+  .fade-in-leave-to,
+  .fade-in-leave,
+  .fade-out-leave-to,
+  .fade-out-leave {
+    display: none;
+  }
+
+  .sidePicFade{
+    animation: sidePicFade 500ms linear;
+  }
+
+  @keyframes sidePicFade {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+
+  #works{
+    min-height: 100vh;
+    position: relative;
+    .btns-field{
+      span{
+        // position: absolute;
+        // top: 70%;
+        // &:last-child{
+        //   right: 0;
+        // }
+        svg{
+          height: 3rem;
+          width: 3rem;
+        }
+        path{
+          color: $innerNebulaDark;
+        }
+        &:hover path{
+          color: $innerNebulaLight;
+        }
+
+      }
+    }
+
+  }
 
 </style>
