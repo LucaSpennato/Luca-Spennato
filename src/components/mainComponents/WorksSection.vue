@@ -10,12 +10,12 @@
 
       <!-- Buttons -->
       <div class="btns-field my-3">
-        <span class="mx-2" @click="$_previousSlideOnClick()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-          </svg>
-        </span>
         <span class="mx-2" @click="$_nextSlideOnClick()">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+        </span>
+        <span class="mx-2" @click="$_previousSlideOnClick()">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
           </svg>
@@ -25,17 +25,23 @@
       <!-- Images -->
       <div id="carousel-imgs-wrapper">
           <div class="prevWork">
-            <img :src="worksCarousel[prevWork].src" alt="" :class="animatedClass">
+            <!-- <img :src="worksCarousel[prevWork].src" alt="" :class="sideLeft"> -->
+             <Transition :name="rightSideAnimation">
+                <img :src="worksCarousel[prevWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+            </Transition>
           </div>
 
-          <div class="current">
-            <Transition :name="test">
+          <div class="currentWork">
+            <Transition :name="transitionFadeAnimation">
                 <img :src="worksCarousel[currentWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
           <div class="nextWork"> 
-            <img :src="worksCarousel[nextWork].src" alt="" :class="animatedClass">
+             <Transition :name="leftSideAnimation">
+                <img :src="worksCarousel[nextWork].src" alt="" v-if="worksCarousel[currentWork].isActive">
+            </Transition>
+            <!-- <img :src="worksCarousel[nextWork].src" alt="" :class="sideRight"> -->
           </div>
       </div>
 
@@ -49,7 +55,9 @@ export default {
   name: 'WorksSection',
   data(){
     return{
-      test: '',
+      transitionFadeAnimation: '',
+      rightSideAnimation: '',
+      leftSideAnimation: '',
       prevWork: null,
       currentWork: 0,
       nextWork: 1,
@@ -123,7 +131,15 @@ export default {
 
     $_animationClassForSidePic(condition){
 
-      condition ? this.test = 'fade-in' : this.test = 'fade-out';
+      if(condition){
+        this.rightSideAnimation = 'side-inLeft';
+        this.leftSideAnimation = 'side-outLeft';
+        this.transitionFadeAnimation = 'fade-in'
+      }else{
+        this.rightSideAnimation = 'side-outRigth';
+        this.leftSideAnimation = 'side-inRigth';
+        this.transitionFadeAnimation = 'fade-out';
+      }
 
        this.worksCarousel.forEach(el =>{
         el.isActive = false;
@@ -147,72 +163,99 @@ export default {
   
   @import '../../scss/partials/_variables.scss';
 
-  .current, .prevWork, .nextWork{
-    overflow: hidden;
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        &::selection{
-        background-color: transparent;
+  #carousel-imgs-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .currentWork, .prevWork, .nextWork{
+      margin: 1rem;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          &::selection{
+          background-color: transparent;
+        }
       }
     }
-  }
+  
+    .currentWork{
+      width: 10rem;
+      height: 10rem;
+      z-index: 2;
+    }
+  
+    .prevWork, .nextWork{
+      // overflow: hidden;
+      width: 5rem;
+      height: 5rem;
+    }
 
-  .current{
-    width: 10rem;
-    height: 10rem;
-  }
+    .fade-in-enter-active, 
+    .fade-out-enter-active,
+    .side-inRigth-enter-active,
+    .side-outRigth-enter-active,
+    .side-inLeft-enter-active,
+    .side-outLeft-enter-active{
+      transition: all 1s ease-in-out;
+    }
+  
+    // .fade-in-enter{
+    //   transform: translateX(100%) scale(.5);
+    // }
+    // .fade-out-enter{
+    //   transform: translateX(-50%) scale(.5);
+    // }
 
-  .prevWork, .nextWork{
-    width: 5rem;
-    height: 5rem;
-  }
+    // .side-out-enter{
+    //   transform: translate(100%);
+    // }
 
-  .fade-in-enter-active, .fade-out-enter-active{
-    transition: all 200ms ease-in-out;
-  }
+    // .side-in-enter{
+    //   transform: translate(-100%) scale(2);
+    // }
+  
 
-  .fade-in-enter, .fade-out-enter{
-    opacity: 0;
-  }
-  .fade-in-enter{
-    transform: translateY(100%);
-  }
-  .fade-out-enter{
-    transform: translateY(-100%);
-  }
+    .fade-in-enter{
+      transform: translateX(100%) scale(.5);
+    }
+    .fade-out-enter{
+      transform: translateX(-100%) scale(.5);
+    }
 
-  .fade-in-leave-to,
-  .fade-in-leave,
-  .fade-out-leave-to,
-  .fade-out-leave {
-    display: none;
-  }
-
-  .sidePicFade{
-    animation: sidePicFade 500ms linear;
-  }
-
-  @keyframes sidePicFade {
-    from{
+    .side-outRigth-enter{
       opacity: 0;
+      transform: translate(-100%) scale(.5);
     }
-    to{
-      opacity: 1;
+
+    .side-inRigth-enter{
+      transform: translate(-200%) scale(2);
     }
+
+    .side-inLeft-enter{
+      transform: translate(200%) scale(2);
+    }
+
+    .side-outLeft-enter{
+      opacity: 0;
+      transform: translate(100%) scale(.5);
+    }
+
   }
+  
+
 
   #works{
-    min-height: 100vh;
+    // min-height: 100vh;
     position: relative;
     .btns-field{
       span{
-        // position: absolute;
-        // top: 70%;
-        // &:last-child{
-        //   right: 0;
-        // }
+        position: absolute;
+        z-index: 1;
+        top: 70%;
+        &:last-child{
+          right: 0;
+        }
         svg{
           height: 3rem;
           width: 3rem;
