@@ -44,9 +44,14 @@
             <h2 class="pageStyleWordLight text-capitalize">
                 {{ worksCarousel[currentWork].name }}
             </h2>
-            <div>
-                <font-awesome-icon icon="fa-brands fa-github" />
-            </div>
+            <ul id="tech-icons-wrapper">
+              <li>
+                Technologies used:
+              </li>
+              <li class="mx-2 icon" v-for="(icon, i) in worksCarousel[currentWork].techUsed" :key="i">
+                <font-awesome-icon :icon=" $_fixedFontAwesomeIconsPath(icon)" />
+              </li>
+            </ul>
            <div class="col-12 col-md-10 mt-4 description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta aliquam magnam quaerat officia impedit ipsum quisquam quo, mollitia provident eos error hic totam quos quas optio dolore fugit ipsam?
             </div>
@@ -73,6 +78,7 @@ export default {
         {
           name: 'laravel backOffice',
           description: '',
+          techUsed: ['html5', 'css3','bootstrap','sass', 'git', 'js', 'vuejs', 'php', 'laravel', 'database'],
           src: 'backend',
           isActive: true,
         },
@@ -80,34 +86,40 @@ export default {
           name: 'boolflix search feature with axios',
           src: 'boolflix',
           description: '',
+          techUsed: ['html5', 'css3','bootstrap','sass','git', 'js', 'vuejs'],
           isActive: false,
         },
         {
           name: 'boolzapp web clone',
           src: 'boolzapp',
           description: '',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
           isActive: false,
         },
         {
           name: 'dc comics frontend clone',
           src: 'dccomics',
           description: '',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
           isActive: false,
         },
         {
           name: 'dropbox frontend clone',
           src: 'dropbox',
           description: '',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git'],
           isActive: false,
         },
         {
           name: 'playstation frontend clone',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git'],
           src: 'playstation',
           description: '',
           isActive: false,
         },
         {
           name: 'spotify frontend clone',
+          techUsed: ['html5', 'css3', 'git'],
           src: 'spotify',
           description: '',
           isActive: false,
@@ -116,6 +128,15 @@ export default {
     }
   },
   methods:{
+    $_fixedFontAwesomeIconsPath(string){
+      if(string === 'database'){
+        return 'fa-solid fa-database';
+      }else if(string === 'css3' || string === 'git'){
+        return 'fa-brands fa-' + string + '-alt';
+      }else{
+        return 'fa-brands fa-' + string;
+      }
+    },
     $_fixedPath(string){
       return require( '../../assets/works/' + string + '.png');
     },
@@ -191,7 +212,46 @@ export default {
   
   @import '../../scss/partials/_variables.scss';
   @import '../../scss/partials/_classes.scss';
-  // @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+  #works{
+    position: relative;
+    .btns-field{
+      display: flex;
+      justify-content: space-between;
+      span{
+        z-index: 5;
+        &:last-child{
+          right: 0;
+        }
+        svg{
+          height: 3rem;
+          width: 3rem;
+        }
+        path{
+          color: $innerNebulaDark;
+        }
+        &:hover path{
+          color: $innerNebulaLight;
+        }
+
+      }
+    }
+
+    #tech-icons-wrapper{
+      list-style: none;
+      padding: 0;
+      li {
+        margin: .5rem 0;
+        &.icon{
+          display: inline;
+          svg{
+            height: 1.5rem;
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+
 
   #carousel-imgs-wrapper{
     *:not(.description){
@@ -264,29 +324,7 @@ export default {
 
   }
 
-  #works{
-    position: relative;
-    .btns-field{
-      display: flex;
-      justify-content: space-between;
-      span{
-        z-index: 5;
-        &:last-child{
-          right: 0;
-        }
-        svg{
-          height: 3rem;
-          width: 3rem;
-        }
-        path{
-          color: $innerNebulaDark;
-        }
-        &:hover path{
-          color: $innerNebulaLight;
-        }
-
-      }
-    }
+  
 
   }
 
