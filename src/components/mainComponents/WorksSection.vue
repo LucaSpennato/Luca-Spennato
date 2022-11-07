@@ -32,12 +32,12 @@
 
            <!-- Buttons -->
             <div class="btns-field my-3">
-              <span class="mx-2" @click="$_nextSlideOnClick()">
+              <span class="mx-2" @click="$_previousSlideOnClick()">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
               </span>
-              <span class="mx-2" @click="$_previousSlideOnClick()">
+              <span class="mx-2" @click="$_nextSlideOnClick()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                 </svg>
@@ -45,8 +45,16 @@
             </div>
 
           <div class="col-12 my-4">
-           <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sed ipsa modi quasi vitae mollitia laboriosam, ducimus perferendis veniam aut cumque aperiam facere, sequi impedit quibusdam quia voluptatem eos porro!</div>
-           <div class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta aliquam magnam quaerat officia impedit ipsum quisquam quo, mollitia provident eos error hic totam quos quas optio dolore fugit ipsam?</div>
+            <h2 class="pageStyleWordLight text-capitalize">
+                {{ worksCarousel[currentWork].name }}
+            </h2>
+            <div>
+                <font-awesome-icon icon="fa-solid fa-user-secret" />
+                <font-awesome-icon icon="fa-brands fa-github" />
+            </div>
+           <div class="col-12 col-md-10 mt-4 description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta aliquam magnam quaerat officia impedit ipsum quisquam quo, mollitia provident eos error hic totam quos quas optio dolore fugit ipsam?
+            </div>
           </div>
       </div>
 
@@ -68,38 +76,45 @@ export default {
       nextWork: 1,
       worksCarousel: [
         {
-          text: 'laravel backOffice',
+          name: 'laravel backOffice',
+          description: '',
           src: 'backend',
           isActive: true,
         },
         {
-          text: 'boolflix search feature',
+          name: 'boolflix search feature with axios',
           src: 'boolflix',
+          description: '',
           isActive: false,
         },
         {
-          text: 'boolzapp web clone',
+          name: 'boolzapp web clone',
           src: 'boolzapp',
+          description: '',
           isActive: false,
         },
         {
-          text: 'dc comics frontend clone',
+          name: 'dc comics frontend clone',
           src: 'dccomics',
+          description: '',
           isActive: false,
         },
         {
-          text: 'dropbox frontend clone',
+          name: 'dropbox frontend clone',
           src: 'dropbox',
+          description: '',
           isActive: false,
         },
         {
-          text: 'playstation frontend clone',
+          name: 'playstation frontend clone',
           src: 'playstation',
+          description: '',
           isActive: false,
         },
         {
-          text: 'spotify frontend clone',
+          name: 'spotify frontend clone',
           src: 'spotify',
+          description: '',
           isActive: false,
         },
       ]
@@ -180,38 +195,38 @@ export default {
 <style lang="scss" scoped>
   
   @import '../../scss/partials/_variables.scss';
+  @import '../../scss/partials/_classes.scss';
+  // @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
   #carousel-imgs-wrapper{
+    *:not(.description){
+      &::selection{
+          background-color: transparent;
+        }
+    }
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    .currentWork{
+      z-index: 2;
+    }
     .currentWork, .prevWork, .nextWork{
-      // margin: 1rem;
         img{
           width: 100%;
           height: 100%;
           object-fit: contain;
-          &::selection{
-          background-color: transparent;
-        }
+         
       }
     }
-  
-    .currentWork{
-      // width: 40rem;
-      // height: 40rem;
-      z-index: 2;
-    }
-  
-
+    
     .fade-in-enter-active, 
     .fade-out-enter-active,
     .side-inRigth-enter-active,
     .side-outRigth-enter-active,
     .side-inLeft-enter-active,
     .side-outLeft-enter-active{
-      transition: all 1s ease-in-out;
+      transition: all 300ms ease-in-out;
     }
 
     .fade-in-enter{
@@ -224,13 +239,13 @@ export default {
     @media screen and (max-width: 991.92px){
       .fade-in-enter-active, 
       .fade-out-enter-active{
-        transition: all 300ms ease-in-out;
+        transition: all 200ms ease-in-out;
       }
       .fade-in-enter{
-        transform: translateX(50%) scale(.5);
+        transform: translateX(50%);
       }
       .fade-out-enter{
-        transform: translateX(-50%) scale(.5);
+        transform: translateX(-50%);
       }
     }
 
@@ -260,8 +275,6 @@ export default {
       display: flex;
       justify-content: space-between;
       span{
-        // position: absolute;
-        // top: 30%;
         z-index: 5;
         &:last-child{
           right: 0;
