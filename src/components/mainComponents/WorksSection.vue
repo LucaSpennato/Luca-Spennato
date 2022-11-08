@@ -42,12 +42,12 @@
 
           <div class="col-12 my-4">
             <h2 class="pageStyleWordLight text-capitalize">
+                <a class="mx-3 icon" :href="worksCarousel[currentWork].repoLink" target="_blank">
+                   <font-awesome-icon icon="fa-brands fa-github" />
+                </a>
                 {{ worksCarousel[currentWork].name }}
             </h2>
             <ul id="tech-icons-wrapper">
-              <li>
-                Technologies used:
-              </li>
               <li class="mx-2 icon" v-for="(icon, i) in worksCarousel[currentWork].techUsed" :key="i">
                 <font-awesome-icon :icon=" $_fixedFontAwesomeIconsPath(icon)" />
               </li>
@@ -77,9 +77,10 @@ export default {
       worksCarousel: [
         {
           name: 'laravel backOffice',
+          src: 'backend',
           description: '',
           techUsed: ['html5', 'css3','bootstrap','sass', 'git', 'js', 'vuejs', 'php', 'laravel', 'database'],
-          src: 'backend',
+          repoLink: 'https://github.com/LucaSpennato/laravel-boolpress',
           isActive: true,
         },
         {
@@ -87,13 +88,15 @@ export default {
           src: 'boolflix',
           description: '',
           techUsed: ['html5', 'css3','bootstrap','sass','git', 'js', 'vuejs'],
+          repoLink: 'https://github.com/LucaSpennato/vue-boolflix',
           isActive: false,
         },
         {
           name: 'boolzapp web clone',
           src: 'boolzapp',
-          description: '',
+          description: 'https://github.com/LucaSpennato/vue-boolzapp',
           techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
+          repoLink: 'https://github.com/LucaSpennato/vue-boolzapp',
           isActive: false,
         },
         {
@@ -101,6 +104,7 @@ export default {
           src: 'dccomics',
           description: '',
           techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
+          repoLink: 'https://github.com/LucaSpennato/vue-dc-comics',
           isActive: false,
         },
         {
@@ -108,20 +112,23 @@ export default {
           src: 'dropbox',
           description: '',
           techUsed: ['html5', 'css3', 'bootstrap', 'git'],
+          repoLink: 'https://github.com/LucaSpennato/htmlcss-dropbox',
           isActive: false,
         },
         {
           name: 'playstation frontend clone',
-          techUsed: ['html5', 'css3', 'bootstrap', 'git'],
           src: 'playstation',
           description: '',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git'],
+          repoLink: 'https://github.com/LucaSpennato/htmlcss-playstation',
           isActive: false,
         },
         {
-          name: 'spotify frontend clone',
-          techUsed: ['html5', 'css3', 'git'],
+          name: 'spotify web frontend clone',
           src: 'spotify',
           description: '',
+          techUsed: ['html5', 'css3', 'git'],
+          repoLink: 'https://github.com/LucaSpennato/html-css-spotifyweb',
           isActive: false,
         },
       ]
@@ -240,7 +247,11 @@ export default {
     #tech-icons-wrapper{
       list-style: none;
       padding: 0;
-      li {
+      .repo-link{
+        display: flex;
+        align-items: center;
+      }
+      li, a {
         margin: .5rem 0;
         &.icon{
           display: inline;
@@ -323,9 +334,6 @@ export default {
     }
 
   }
-
-  
-
   }
 
 </style>
