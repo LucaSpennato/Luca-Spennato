@@ -1,5 +1,5 @@
 <template>
-  <section id="works" class="row">
+  <section id="works" class="row pb-5">
   
     <div class="col-12 m-auto mb-3">
         <h4 class="pageStyleWordLight text-capitalize">
@@ -13,19 +13,19 @@
           <div class="prevWork d-none d-lg-block col-3">
             <!-- <img :src="worksCarousel[prevWork].src" alt="" :class="sideLeft"> -->
              <Transition :name="rightSideAnimation">
-                <img :src="$_fixedPath(worksCarousel[prevWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[prevWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
           <div class="currentWork col-12 col-lg-6">
             <Transition :name="transitionFadeAnimation">
-                <img :src="$_fixedPath(worksCarousel[currentWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[currentWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
           <div class="nextWork d-none d-lg-block col-3"> 
              <Transition :name="leftSideAnimation">
-                <img :src="$_fixedPath(worksCarousel[nextWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[nextWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
             </Transition>
             <!-- <img :src="worksCarousel[nextWork].src" alt="" :class="sideRight"> -->
           </div>
@@ -41,19 +41,19 @@
             </div>
 
           <div class="col-12 my-4">
-            <h2 class="pageStyleWordLight text-capitalize">
+            <div class="fs-2 d-flex">
                 <a class="mx-3 icon" :href="worksCarousel[currentWork].repoLink" target="_blank">
                    <font-awesome-icon icon="fa-brands fa-github" />
                 </a>
-                {{ worksCarousel[currentWork].name }}
-            </h2>
+                <span class="pageStyleWordLight text-capitalize">{{ worksCarousel[currentWork].name }}</span>
+            </div>
             <ul id="tech-icons-wrapper">
               <li class="mx-2 icon" v-for="(icon, i) in worksCarousel[currentWork].techUsed" :key="i">
                 <font-awesome-icon :icon=" $_fixedFontAwesomeIconsPath(icon)" />
               </li>
             </ul>
            <div class="col-12 col-md-10 mt-4 description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta aliquam magnam quaerat officia impedit ipsum quisquam quo, mollitia provident eos error hic totam quos quas optio dolore fugit ipsam?
+              {{ worksCarousel[currentWork].description }}
             </div>
           </div>
       </div>
@@ -74,59 +74,75 @@ export default {
       prevWork: null,
       currentWork: 0,
       nextWork: 1,
+
       worksCarousel: [
+        {
+          name: 'BoolBnb',
+          src: 'boolBnb',
+          description: `The end-of-course project. 
+                      It is a fully working airBnb like website with all the technologies and knowledge gained during the bootcamp.
+                      The project was realized in team over one month and followed by two project managers.
+                      In backoffice it is possible to: user registration with validations, entering a house to rent, entering all the required details and parameters with client-side and backend validation, photo upload, entering the exact location of the house with TomTom's API, editing, deleting,
+                      viewing statistics with the use of the Chart.js API, viewing any messages sent by users from the front office and sponsoring properties, which will be displayed with a higher priority during the search in front office.
+                      In the front office it allows searching for property in the database using the TomTom's API, filtering them without page refresh, displaying individual apartments, and the possibility of contacting the property owner via a contact form.`,
+          techUsed: ['html5', 'css3','bootstrap','sass', 'git', 'js', 'vuejs', 'php', 'laravel', 'database', 'group'],
+          repoLink: 'https://github.com/MatteoGenovese/BoolBnb',
+          isActive: true,
+        },
         {
           name: 'laravel backOffice',
           src: 'backend',
-          description: '',
+          description: `My first "big" project with laravel, a database management backoffice.
+                        It allows creation, editing, soft and permanent deletion, viewing in detail of any entry there is a need for, tags assignment, user registration, photo uploads and roles assignable to different users by any administrators.
+                        It also provides for an API, managed with AXIOS in frontoffice by using Vuejs.`,
           techUsed: ['html5', 'css3','bootstrap','sass', 'git', 'js', 'vuejs', 'php', 'laravel', 'database'],
           repoLink: 'https://github.com/LucaSpennato/laravel-boolpress',
           isActive: true,
         },
         {
+          name: 'php OOP api',
+          src: 'oopapi',
+          description: 'Project made with Php OOP, contains a mock database and an API managed by a controller, all displayed on the page with an AXIOS call.',
+          techUsed: ['html5', 'css3','bootstrap', 'git', 'php'],
+          repoLink: 'https://github.com/LucaSpennato/php-ajax-dischi',
+          isActive: true,
+        },
+        {
           name: 'boolflix search feature with axios',
           src: 'boolflix',
-          description: '',
+          description: 'The first project made with AXIOS, the application will query with at API TheMovieDatabase and show the results on the page. The cards if hovered, will show other information: overview, rating, title, original title and original language.',
           techUsed: ['html5', 'css3','bootstrap','sass','git', 'js', 'vuejs'],
           repoLink: 'https://github.com/LucaSpennato/vue-boolflix',
           isActive: false,
         },
         {
-          name: 'boolzapp web clone',
+          name: 'boolzapp web replica',
           src: 'boolzapp',
-          description: 'https://github.com/LucaSpennato/vue-boolzapp',
+          description: 'A small reproduction of whatsapp web, the first technical challenge with Vue. It allows to send messages with response from a bot.',
           techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
           repoLink: 'https://github.com/LucaSpennato/vue-boolzapp',
           isActive: false,
         },
         {
-          name: 'dc comics frontend clone',
+          name: 'dc comics frontend replica',
           src: 'dccomics',
-          description: '',
+          description: 'Frontend reproduction of DC Comics home page, made with Vue Cli. In this small project each section is built using components, populated using arrays of literal objects.',
           techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs'],
           repoLink: 'https://github.com/LucaSpennato/vue-dc-comics',
           isActive: false,
         },
         {
-          name: 'dropbox frontend clone',
-          src: 'dropbox',
-          description: '',
-          techUsed: ['html5', 'css3', 'bootstrap', 'git'],
-          repoLink: 'https://github.com/LucaSpennato/htmlcss-dropbox',
-          isActive: false,
-        },
-        {
-          name: 'playstation frontend clone',
+          name: 'playstation frontend replica',
           src: 'playstation',
-          description: '',
+          description: 'Frontend reproduction of Playstation site. First technical challenge using bootstrap, the page is completely mobile responsive.',
           techUsed: ['html5', 'css3', 'bootstrap', 'git'],
           repoLink: 'https://github.com/LucaSpennato/htmlcss-playstation',
           isActive: false,
         },
         {
-          name: 'spotify web frontend clone',
+          name: 'spotify web frontend replica',
           src: 'spotify',
-          description: '',
+          description: 'Spotify web frontend reproduction. One of my first works, it was the first technical challenge using entirely html and css, the page is completely responsive.',
           techUsed: ['html5', 'css3', 'git'],
           repoLink: 'https://github.com/LucaSpennato/html-css-spotifyweb',
           isActive: false,
@@ -136,15 +152,38 @@ export default {
   },
   methods:{
     $_fixedFontAwesomeIconsPath(string){
-      if(string === 'database'){
-        return 'fa-solid fa-database';
-      }else if(string === 'css3' || string === 'git'){
-        return 'fa-brands fa-' + string + '-alt';
-      }else{
-        return 'fa-brands fa-' + string;
+
+      let correctedStringPath;
+
+      switch (string) {
+        case 'database': 
+          correctedStringPath = 'fa-solid fa-database';
+          break;
+        case 'css3':
+        case 'git':
+          correctedStringPath = 'fa-brands fa-' + string + '-alt';
+          break;
+        case 'group':
+          correctedStringPath = 'fa-solid fa-people-group';
+          break;
+        default:
+          correctedStringPath = 'fa-brands fa-' + string;
+          break;
       }
+
+      return correctedStringPath;
+
+      // if(string === 'database'){
+      //   return 'fa-solid fa-database';
+      // }else if(string === 'group'){
+      //   return 'fa-solid fa-people-group';
+      // }else if(string === 'css3' || string === 'git'){
+      //   return 'fa-brands fa-' + string + '-alt';
+      // }else{
+      //   return 'fa-brands fa-' + string;
+      // }
     },
-    $_fixedPath(string){
+    $_fixedImgPath(string){
       return require( '../../assets/works/' + string + '.png');
     },
     $_nextSlideOnClick(){
