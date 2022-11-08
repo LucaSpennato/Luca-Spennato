@@ -4,7 +4,12 @@ import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 
-{ faCircleChevronLeft as arrowLeft, faCircleChevronRight as arrowRight, faCircleChevronUp as arrowUp, faDatabase as mySql} 
+{ faCircleChevronLeft as arrowLeft, 
+  faCircleChevronRight as arrowRight, 
+  faCircleChevronUp as arrowUp, 
+  faDatabase as mySql,
+  faPeopleGroup as teamwork,
+} 
 from '@fortawesome/free-solid-svg-icons'
 import 
 { 
@@ -23,7 +28,7 @@ import
 } 
 from '@fortawesome/free-brands-svg-icons'
 
-library.add(github, vue, html, css, bootstrap, sass, git, js, php, laravel, linkedin, arrowLeft, arrowRight, arrowUp, mySql)
+library.add(github, vue, html, css, bootstrap, sass, git, js, php, laravel, linkedin, arrowLeft, arrowRight, arrowUp, mySql, teamwork)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
