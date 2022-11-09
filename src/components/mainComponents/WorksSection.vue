@@ -1,33 +1,34 @@
 <template>
-  <section id="works" class="row pb-5">
+  <section id="works" class="row pt-lg-5">
   
     <div class="col-12 m-auto mb-3">
-        <h4 class="pageStyleWordLight text-capitalize">
+        <h3 class="pageStyleWordLight text-capitalize">
         Works i've done
-      </h4>
+      </h3>
     </div>
     <div class="col-12 m-auto">
 
       <!-- Images -->
       <div id="carousel-imgs-wrapper" class="row">
           <div class="prevWork d-none d-lg-block col-3">
-            <!-- <img :src="worksCarousel[prevWork].src" alt="" :class="sideLeft"> -->
              <Transition :name="rightSideAnimation">
-                <img :src="$_fixedImgPath(worksCarousel[prevWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[prevWork].src)" :alt="worksCarousel[prevWork].name + '\'s image'" 
+                v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
           <div class="currentWork col-12 col-lg-6">
             <Transition :name="transitionFadeAnimation">
-                <img :src="$_fixedImgPath(worksCarousel[currentWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[currentWork].src)" :alt="worksCarousel[currentWork].name + '\'s image'" 
+                v-if="worksCarousel[currentWork].isActive">
             </Transition>
           </div>
 
           <div class="nextWork d-none d-lg-block col-3"> 
              <Transition :name="leftSideAnimation">
-                <img :src="$_fixedImgPath(worksCarousel[nextWork].src)" alt="" v-if="worksCarousel[currentWork].isActive">
+                <img :src="$_fixedImgPath(worksCarousel[nextWork].src)" :alt="worksCarousel[nextWork].name + '\'s image'" 
+                v-if="worksCarousel[currentWork].isActive">
             </Transition>
-            <!-- <img :src="worksCarousel[nextWork].src" alt="" :class="sideRight"> -->
           </div>
 
            <!-- Buttons -->
@@ -112,7 +113,7 @@ export default {
           isActive: true,
         },
         {
-          name: 'boolflix search feature with axios',
+          name: 'boolflix search with axios',
           src: 'boolflix',
           description: 'The first project made with AXIOS, the application will query with at API TheMovieDatabase and show the results on the page. The cards if hovered, will show other information: overview, rating, title, original title and original language.',
           techUsed: ['html5', 'css3','bootstrap','sass','git', 'js', 'vuejs'],

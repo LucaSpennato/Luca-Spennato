@@ -1,12 +1,12 @@
 <template>
-  <section id="about" class="row">
+  <section id="about" class="row pt-lg-5">
    
-    <div class="col-12 col-md-10 m-auto text-center text-md-start mb-3">
+    <div class="col-12 col-lg-10 m-auto text-center text-md-start mb-3">
       <h3 class="pageStyleWordLight text-capitalize">
         something about me
       </h3>
     </div>
-    <div class="col-12 col-md-10 m-auto fs-4">
+    <div class="col-12 col-lg-10 m-auto fs-4">
       <p> 
         In my late 20s I decided to turn my life around with Boolean's bootcamp. Before that I had many jobs, most of them in the restaurant industry, particularly as a pizza maker.
       </p> 
