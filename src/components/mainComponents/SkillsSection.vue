@@ -1,33 +1,127 @@
 <template>
   <section id="skills" class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+          <h4 class="pageStyleWordLight text-capitalize">
+            my skills
+          </h4>
+        <div class="row justify-content-around">
+             
+                <div v-for="(skillSet, i) in  skillsList" :key="i" class="text-capitalize nebulaStyleLinkDark col-6 col-md-3 fs-2" @click="$_getSkillSetsIndex(i)">
+                  {{ skillSet.type  }}
+                </div>
+          
 
-    <div class="col-8 m-auto mb-3">
-      <h4 class="pageStyleWordLight text-capitalize">
-        my skills
-      </h4>
-    </div>
-    <div class="col-10 m-auto">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore voluptatum impedit aperiam quo expedita porro provident assumenda magnam! Laudantium ad alias doloribus fugit, dignissimos accusamus accusantium blanditiis facere molestias.
-      Ut autem exercitationem quam. Nemo necessitatibus doloribus sequi excepturi error debitis explicabo dolores veniam possimus ducimus! At consequuntur officiis facere harum maxime. Eius ipsum magnam id voluptas ducimus eaque velit!
-      Pariatur possimus doloremque impedit fugit odit cupiditate temporibus minus explicabo adipisci asperiores accusantium, accusamus voluptatem, dignissimos provident nam amet delectus officiis! Doloremque ratione ipsam exercitationem. Dolorum architecto modi animi voluptates.
-      Assumenda repellat iure adipisci eveniet, quod excepturi aspernatur consectetur sed nisi fugiat omnis, illo esse fuga expedita sapiente voluptas! Tempora commodi molestiae ut iusto corrupti sunt explicabo, soluta iste tenetur.
-      Voluptatum fugiat, beatae optio nemo facere est amet ipsam incidunt accusamus sapiente blanditiis nobis sed quo perspiciatis, veritatis ex eligendi molestiae vel. Quod illum voluptate explicabo hic, distinctio molestias. Beatae?
-      Iste rem aliquid temporibus debitis alias nesciunt veritatis autem accusantium aperiam dolores voluptatem aut maiores quia, sit facilis laborum consequuntur quos, a voluptate id delectus fugiat neque eveniet. Ut, consequuntur.
-      Consequuntur perferendis vel accusantium nisi, odit officiis cum et sint porro libero nesciunt odio a illum veniam facere aliquam quaerat asperiores tempora dignissimos eum deleniti quam. Velit, qui maxime. Similique!
-      Voluptatibus, tempora tempore impedit eum necessitatibus facilis dolorem corporis optio, eos reiciendis esse consectetur? Omnis praesentium deleniti culpa, ipsam illum in exercitationem assumenda quidem quis, iure blanditiis sed voluptate eveniet!
-      Ea in soluta, natus est quaerat incidunt sit quia, impedit facilis quidem porro corrupti earum nulla, illo numquam nobis sequi quo quos. Veniam nesciunt, velit ducimus suscipit incidunt non aut!
-      Fugiat dolor sint mollitia voluptatibus placeat blanditiis atque perferendis. Nemo quod earum voluptate enim architecto maxime rem amet voluptates harum magnam dicta atque, voluptatibus laborum, deserunt natus aperiam provident dignissimos.
+            
+                <div v-for="tool in skillsList[currentSkill].tools" :key="tool.name" class="col-6 col-md-4 offset-2 my-3">
+                  <font-awesome-icon :icon="fixedFontAwesomeIconsPath(tool.icon)" />
+                  <span>{{ tool.name }}</span>
+                </div>
+           
+        </div>
     </div>
 
   </section>
 </template>
 
 <script>
+import { helpers } from '../../mixins/helpers';
 export default {
   name: 'SkillsSection',
+  mixins: [helpers],
+  data(){
+    return{
+      currentSkill: 0,
+      skillsList:[
+        {
+          type: 'frontEnd',
+          tools: [
+            {
+              icon: 'html5',
+              name: 'HTML5',
+            },
+            {
+              icon: 'css3',
+              name: 'CSS3',
+            },
+            {
+              icon: 'bootstrap',
+              name: 'Bootstrap',
+            },
+            {
+              icon: 'sass',
+              name: 'scss',
+            },
+            {
+              icon: 'js',
+              name: 'Javascript',
+            },
+            {
+              icon: 'vuejs',
+              name: 'Vue js',
+            },
+            
+          ]
+        },
+        {
+          type: 'backend',
+          tools:[
+            {
+              icon: 'php',
+              name: 'PHP',
+            },
+            {
+              icon: 'laravel',
+              name: 'Laravel',
+            },
+            {
+              icon: 'database',
+              name: 'MySql',
+            },
+          ]
+        },
+        {
+          type:'versioning',
+          tools:[
+            {
+              icon: 'git',
+              name: 'Git',
+            },
+            {
+              icon: 'github',
+              name: 'Github',
+            },
+          ]
+        },
+        {
+          type: 'languages',
+          tools:[
+            {
+              icon: 'italian',
+              name:'italian (native)'
+            },
+            {
+              icon: 'eng',
+              name: 'english B2'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  methods:{
+    $_getSkillSetsIndex(index){
+      this.currentSkill = index;
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import '../../scss/partials/_classes.scss';
+  @import '../../scss/partials/_variables.scss';
+
+  #skills{
+    height: 80vh;
+  }
 
 </style>
