@@ -1,21 +1,32 @@
 <template>
-  <section id="skills" class="row">
+  <section id="skills" class="row pt-lg-5">
     <div class="col-12 col-md-10 offset-md-1">
-          <h4 class="pageStyleWordLight text-capitalize">
+          <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
             my skills
-          </h4>
+          </h3>
         <div class="row justify-content-around">
              
-                <div v-for="(skillSet, i) in  skillsList" :key="i" class="text-capitalize nebulaStyleLinkDark col-6 col-md-3 fs-2" @click="$_getSkillSetsIndex(i)">
-                  {{ skillSet.type  }}
-                </div>
-          
+          <div v-for="(skillSet, i) in  skillsList" :key="i" 
+          class="text-capitalize nebulaStyleLinkDark col-6 col-lg-3 fs-2 d-none d-lg-block" 
+          @click="$_getSkillSetsIndex(i)">
+            {{ skillSet.type  }}
+          </div>
 
-            
-                <div v-for="tool in skillsList[currentSkill].tools" :key="tool.name" class="col-6 col-md-4 offset-2 my-3">
-                  <font-awesome-icon :icon="fixedFontAwesomeIconsPath(tool.icon)" />
-                  <span>{{ tool.name }}</span>
-                </div>
+          <div class="col-10 m-auto d-lg-none">
+              <select id="selection" v-model="currentSkill"
+              class="pageStyleWordLight fs-2 w-100 rounded">
+                <option  v-for="(skillSet, n) in  skillsList" :key="n"
+                :value="n" class="pageStyleWordDark fs-2">
+                  {{ skillSet.type  }}  
+                </option>
+              </select>
+          </div>
+          
+          <div v-for="tool in skillsList[currentSkill].tools" :key="tool.name" 
+          class="col-6 text-center text-md-start col-md-4 offset-md-2 mt-5 py-3 fs-3">
+            <font-awesome-icon :icon="fixedFontAwesomeIconsPath(tool.icon)" />
+            <span class="ms-2">{{ tool.name }}</span>
+          </div>
            
         </div>
     </div>
@@ -57,7 +68,7 @@ export default {
             },
             {
               icon: 'vuejs',
-              name: 'Vue js',
+              name: 'Vue 2',
             },
             
           ]
@@ -121,7 +132,20 @@ export default {
   @import '../../scss/partials/_variables.scss';
 
   #skills{
-    height: 80vh;
+    min-height: 80vh;
+    #selection{
+      text-transform: capitalize;
+      border: 1px solid #fff;
+      background-color: rgba(white,.1);
+      padding: 5px;
+      option{
+        border: 1px solid #e4e4e4;
+        background-color: transparent;
+        -webkit-appearance: none; 
+        -moz-appearance: none; 
+      }
+
+    }
   }
 
 </style>
