@@ -31,6 +31,20 @@
 
 export const helpers = {
     methods:{
+
+        /**
+         * Fix the path for fontawesome icons,
+         * in the cases will correct the strings
+         * for solid type icons, brands and '-alt'
+         * 
+         * @param string 
+         * @case 'database', 'group', 'italian', 'eng' 
+         * @returns 'fa-solid fa-' + string ||  'fa-brands fa-' + string
+         * @case 'css3', 'git'
+         * @returns 'fa-brand fa-' + string + '-alt'
+         * @default 'fa-brands fa-' + string
+         * @returns 'fa-brands fa-' + string
+         */
        fixedFontAwesomeIconsPath(string){
     
             let correctedStringPath;
