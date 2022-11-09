@@ -49,7 +49,7 @@
             </div>
             <ul id="tech-icons-wrapper">
               <li class="mx-2 icon" v-for="(icon, i) in worksCarousel[currentWork].techUsed" :key="i">
-                <font-awesome-icon :icon=" $_fixedFontAwesomeIconsPath(icon)" />
+                <font-awesome-icon :icon="fixedFontAwesomeIconsPath(icon)" />
               </li>
             </ul>
            <div class="col-12 col-md-10 mt-4 description">
@@ -64,8 +64,12 @@
 </template>
 
 <script>
+
+import { helpers } from '../../mixins/helpers';
+
 export default {
   name: 'WorksSection',
+  mixins: [helpers],
   data(){
     return{
       transitionFadeAnimation: '',
@@ -151,38 +155,6 @@ export default {
     }
   },
   methods:{
-    $_fixedFontAwesomeIconsPath(string){
-
-      let correctedStringPath;
-
-      switch (string) {
-        case 'database': 
-          correctedStringPath = 'fa-solid fa-database';
-          break;
-        case 'css3':
-        case 'git':
-          correctedStringPath = 'fa-brands fa-' + string + '-alt';
-          break;
-        case 'group':
-          correctedStringPath = 'fa-solid fa-people-group';
-          break;
-        default:
-          correctedStringPath = 'fa-brands fa-' + string;
-          break;
-      }
-
-      return correctedStringPath;
-
-      // if(string === 'database'){
-      //   return 'fa-solid fa-database';
-      // }else if(string === 'group'){
-      //   return 'fa-solid fa-people-group';
-      // }else if(string === 'css3' || string === 'git'){
-      //   return 'fa-brands fa-' + string + '-alt';
-      // }else{
-      //   return 'fa-brands fa-' + string;
-      // }
-    },
     $_fixedImgPath(string){
       return require( '../../assets/works/' + string + '.png');
     },
