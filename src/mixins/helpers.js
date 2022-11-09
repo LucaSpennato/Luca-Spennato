@@ -39,11 +39,14 @@ export const helpers = {
          * 
          * @param string 
          * @case 'database', 'group', 'italian', 'eng' 
-         * @returns 'fa-solid fa-' + string ||  'fa-brands fa-' + string
+         * @return 'fa-solid fa-' + string ||  'fa-brands fa-' + string
          * @case 'css3', 'git'
-         * @returns 'fa-brand fa-' + string + '-alt'
+         * @return 'fa-brand fa-' + string + '-alt'
+         * @case 'italian
+         * @return 'fa-solid fa-pizza-slice'
+         * @case 'eng'
+         * @return 'fa solid fa-earth-americas'
          * @default 'fa-brands fa-' + string
-         * @returns 'fa-brands fa-' + string
          */
        fixedFontAwesomeIconsPath(string){
     
@@ -64,7 +67,7 @@ export const helpers = {
                     correctedStringPath = 'fa-solid fa-pizza-slice';
                     break;
                 case 'eng':
-                    correctedStringPath = 'fa solid fa-crown';
+                    correctedStringPath = 'fa solid fa-earth-americas';
                     break;
                 default:
                 correctedStringPath = 'fa-brands fa-' + string;

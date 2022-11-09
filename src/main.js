@@ -11,7 +11,7 @@ import
   faDatabase as mySql,
   faPeopleGroup as teamwork,
   faPizzaSlice as ita,
-  faCrown as eng,
+  faEarthAmericas as eng,
 } 
 from '@fortawesome/free-solid-svg-icons'
 import 
