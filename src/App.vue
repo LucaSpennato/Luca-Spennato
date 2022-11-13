@@ -6,13 +6,15 @@
     <!-- Page components -->
     <HeaderComponent :currentPageYPosition="currentPageYPosition" />
     <MainComponent @currentSectionOnScroll="$_getCurrentSectionOnScroll" /> 
+    <FooterComponent />
   </div>
 </template>
 
 <script>
 import StarsEffect from './components/StarsEffect.vue';
-import MainComponent from './pages/MainComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
+import MainComponent from './pages/MainComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 export default {
   name: 'App',
@@ -20,6 +22,7 @@ export default {
     StarsEffect,
     HeaderComponent,
     MainComponent,
+    FooterComponent,
   },
   data(){
     return{
