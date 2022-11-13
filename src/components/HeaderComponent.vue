@@ -1,17 +1,19 @@
 <template>
-  <nav id="header" class="container-fluid pt-4 sticky-top">
-    <div class="row">
+  <header id="header" class="container-fluid pt-4 sticky-top">
+    <nav>
+      <div class="row">
 
-      <ul class="col-12">
-        <li v-for="(link, i) in navBarLinks" :key="i">
-          <a :href="link.route" :class="{ 'active' : link.isActive }" >
-            {{ link.text }}
-          </a>
-        </li>
-      </ul>
-    
-    </div>
-  </nav>
+        <ul class="col-12">
+          <li v-for="(link, i) in navBarLinks" :key="i">
+            <a :href="link.route" :class="{ 'active' : link.isActive }" >
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
+      
+      </div>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -41,6 +43,11 @@ export default {
           route: '#works',
           isActive: false,           
         },
+        {
+          text: 'Reach me',
+          route: '#reachMe',
+          isActive: false,           
+        },
       ]
     }
   },
@@ -67,7 +74,6 @@ export default {
   @import '../scss/partials/_variables.scss';
 
   #header{
-
     
     ul{
       list-style: none;
