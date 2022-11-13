@@ -38,11 +38,13 @@ export const helpers = {
          * for solid type icons, brands and '-alt'
          * 
          * @param string 
-         * @case 'database', 'group', 'italian', 'eng' 
-         * @return 'fa-solid fa-' + string ||  'fa-brands fa-' + string
+         * @case 'database'
+         * @return 'fa-solid fa-database'
+         * @case 'spring'
+         * @return fa-solid fa-leaf'
          * @case 'css3', 'git'
          * @return 'fa-brand fa-' + string + '-alt'
-         * @case 'italian
+         * @case 'italian'
          * @return 'fa-solid fa-pizza-slice'
          * @case 'eng'
          * @return 'fa solid fa-earth-americas'
@@ -55,6 +57,9 @@ export const helpers = {
             switch (string) {
                 case 'database': 
                     correctedStringPath = 'fa-solid fa-database';
+                    break;
+                case 'spring':
+                    correctedStringPath = 'fa-solid fa-leaf';
                     break;
                 case 'css3':
                 case 'git':
