@@ -29,12 +29,13 @@ import
     faPhp as php,
     faLaravel as laravel,
     faLinkedin as linkedin,
+    faTwitter as twitter,
 } 
 from '@fortawesome/free-brands-svg-icons'
 
 library.add(
   github, vue, html, css, bootstrap, sass, git, js, php, laravel, java, spring,
-  linkedin, arrowLeft, arrowRight, arrowUp, mySql, teamwork, ita, eng,
+  linkedin, twitter, arrowLeft, arrowRight, arrowUp, mySql, teamwork, ita, eng,
   )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
