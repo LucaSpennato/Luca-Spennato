@@ -85,6 +85,14 @@ export default {
               name: 'Laravel',
             },
             {
+              icon: 'java',
+              name: 'Java',
+            },
+            {
+              icon: 'spring',
+              name: 'Spring',
+            },
+            {
               icon: 'database',
               name: 'MySql',
             },
