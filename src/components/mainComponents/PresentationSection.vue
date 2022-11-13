@@ -12,6 +12,7 @@
             And i am a
         </h5>
         <h1 class="pageStyleWordDark text-capitalize">
+            junior <br>
             full stack web developer
         </h1>
         <a class="img-container up-img" href="https://www.wired.com/2011/03/meet-the-constellations-orion/" target="_blank">

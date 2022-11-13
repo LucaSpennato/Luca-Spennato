@@ -1,12 +1,12 @@
 <template>
   <section id="works" class="row pt-lg-5">
   
-    <div class="col-12 m-auto mb-3">
-        <h3 class="pageStyleWordLight text-capitalize">
-        Works i've done
-      </h3>
+    <div class="col-12 mb-3">
+        <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
+          Works i've done
+        </h3>
     </div>
-    <div class="col-12 m-auto">
+    <div class="col-12">
 
       <!-- Images -->
       <div id="carousel-imgs-wrapper" class="row">

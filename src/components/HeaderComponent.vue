@@ -29,22 +29,22 @@ export default {
           isActive: true,           
         },
         {
-          text: 'About',
+          text: 'about',
           route: '#about',
           isActive: false,           
         },
         {
-          text: 'Skills',
+          text: 'skills',
           route: '#skills',
           isActive: false,           
         },
         {
-          text: 'Works',
+          text: 'works',
           route: '#works',
           isActive: false,           
         },
         {
-          text: 'Reach me',
+          text: 'contact',
           route: '#reachMe',
           isActive: false,           
         },

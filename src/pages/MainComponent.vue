@@ -2,7 +2,7 @@
   
     <main>
 
-        <div class="container py-5" :ref="'presentationSection'" currentScrollData="0">
+        <div class="container py-1 py-lg-5" :ref="'presentationSection'" currentScrollData="0">
           <PresentationSection  />
         </div>
         <div class="container py-5" :ref="'aboutSection'" currentScrollData="1">
