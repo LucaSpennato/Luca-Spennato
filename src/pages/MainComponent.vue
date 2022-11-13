@@ -2,7 +2,7 @@
   
     <main>
 
-        <div class="container my-5" :ref="'presentationSection'" currentScrollData="0">
+        <div class="container py-5" :ref="'presentationSection'" currentScrollData="0">
           <PresentationSection  />
         </div>
         <div class="container py-5" :ref="'aboutSection'" currentScrollData="1">
@@ -14,14 +14,9 @@
         <div class="container py-5" :ref="'worksSection'" currentScrollData="3">
           <WorksSection />
         </div>
-
-
-
-          <!-- <div id="goUpArrow" class="nebulaStyleLinkDark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-            </svg>
-          </div> -->
+        <div class="container py-5" :ref="'reachMeSection'" currentScrollData="4">
+          <ReachMeSection />
+        </div>
 
     </main>
 
@@ -32,6 +27,7 @@ import PresentationSection from '../components/mainComponents/PresentationSectio
 import AboutSection from '../components/mainComponents/AboutSection.vue';
 import SkillsSection from '../components/mainComponents/SkillsSection.vue';
 import WorksSection from '../components/mainComponents/WorksSection.vue';
+import ReachMeSection from '../components/mainComponents/ReachMeSection.vue';
 
 export default {
     name: 'MainComponent',
@@ -40,6 +36,7 @@ export default {
         AboutSection,
         SkillsSection,
         WorksSection,
+        ReachMeSection,
     },
     data(){
       return{
@@ -60,6 +57,7 @@ export default {
         this.$_scrollSpyFilter(this.$refs.aboutSection);
         this.$_scrollSpyFilter(this.$refs.skillsSection);
         this.$_scrollSpyFilter(this.$refs.worksSection);
+        this.$_scrollSpyFilter(this.$refs.reachMeSection);
         
       },
     },
@@ -74,21 +72,4 @@ export default {
 
 <style lang="scss">
 
-  @import '../scss/partials/_variables.scss';
-  @import '../scss/partials/_classes.scss';
-
-  // #goUpArrow{
-  //     position: fixed;
-  //     bottom: 2rem;
-  //     right: 2rem;
-  //     svg{
-  //       border: 1px solid $innerNebulaDark;
-  //       border-radius: 50%;
-  //       width: 2rem;
-  //       height: 2rem;
-  //       &:hover{
-  //         border-color: $innerNebulaLight;
-  //       }
-  //     }
-  //   }
 </style>
