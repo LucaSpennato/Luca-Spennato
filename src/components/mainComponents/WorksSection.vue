@@ -1,5 +1,5 @@
 <template>
-  <section id="works" class="row pt-lg-5">
+  <section id="works" class="row py-5">
   
     <div class="col-12 mb-3">
         <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
@@ -44,7 +44,7 @@
           <div class="col-12 my-4">
             <div class="fs-2 d-flex">
                 <a class="mx-3 icon" :href="worksCarousel[currentWork].repoLink" target="_blank">
-                   <font-awesome-icon icon="fa-brands fa-github" />
+                   <font-awesome-icon icon="fa-brands fa-github" id="linkToGitHub" />
                 </a>
                 <span class="pageStyleWordLight text-capitalize">{{ worksCarousel[currentWork].name }}</span>
             </div>
@@ -89,7 +89,7 @@ export default {
                       The project was realized in team over one month and followed by two project managers.
                       In backoffice it is possible to: user registration with validations, entering a house to rent, entering all the required details and parameters with client-side and backend validation, photo upload, entering the exact location of the house with TomTom's API, editing, deleting,
                       viewing statistics with the use of the Chart.js API, viewing any messages sent by users from the front office and sponsoring properties, which will be displayed with a higher priority during the search in front office.
-                      In the front office it allows searching for property in the database using the TomTom's API, filtering them without page refresh, displaying individual apartments, and the possibility of contacting the property owner via a contact form.`,
+                      In the front office users can search for property in the database using TomTom's API, filtering them without page refresh, displaying individual apartments, and the possibility of contacting the property owner with a contact form.`,
           techUsed: ['html5', 'css3','bootstrap','sass', 'git', 'js', 'vuejs', 'php', 'laravel', 'database', 'group'],
           repoLink: 'https://github.com/MatteoGenovese/BoolBnb',
           isActive: true,
@@ -234,6 +234,7 @@ export default {
 
   #works{
     position: relative;
+    min-height: 100vh;
     .btns-field{
       display: flex;
       justify-content: space-between;
@@ -252,7 +253,16 @@ export default {
         &:hover path{
           color: $innerNebulaLight;
         }
+      }
 
+    }
+
+    #linkToGitHub{
+      path{
+        color: $innerNebulaDark;
+      }  
+      &:hover path{
+        color: $innerNebulaLight;
       }
     }
 
@@ -273,6 +283,10 @@ export default {
           }
         }
       }
+    }
+
+    .description{
+      min-height: 30vh;
     }
 
 

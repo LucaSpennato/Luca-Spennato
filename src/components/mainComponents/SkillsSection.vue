@@ -1,5 +1,5 @@
 <template>
-  <section id="skills" class="row pt-lg-5">
+  <section id="skills" class="row py-5">
     <div class="col-12 col-md-10 offset-md-1">
           <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
             my skills

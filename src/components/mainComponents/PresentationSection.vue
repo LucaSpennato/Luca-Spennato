@@ -1,5 +1,5 @@
 <template>
-  <section id="presentation" class="row position-relative">
+  <section id="presentation" class="row position-relative py-5">
  
     <div class="col-12 col-sm-10 col-lg-8 mb-2">
         <h5>

@@ -1,12 +1,12 @@
 <template>
-  <section id="reachMe" class="row pt-lg-5">
+  <section id="reachMe" class="row py-5">
     <div class="col-12 col-md-10 offset-md-1">
         <h3 class="pageStyleWordLight text-capitalize mb-3 text-center text-md-start pb-5">
             how to reach me
         </h3>
-        <h5 class="text-center pb-5 mb-5">
+        <h5 class="text-center pb-5 mb-sm-5">
             <div class="mb-3">
-                Via email:
+                Email:
             </div>
             <a href="mailTo:luca.spennato@gmail.com" class="nebulaStyleLinkLight">
                 luca.spennato@gmail.com
@@ -20,7 +20,7 @@
             <li class="text-center mb-3">
                 Other links:
             </li>
-            <li v-for="link in myLinks" :key="link.text" class="col-12 col-sm-2 text-center py-3">
+            <li v-for="link in myLinks" :key="link.text" class="col-12 col-sm-3 col-md-2 text-center py-3">
                 <a :href="link.src" target="_blank">
                     <font-awesome-icon :icon="fixedFontAwesomeIconsPath(link.icon)" />
                 </a>

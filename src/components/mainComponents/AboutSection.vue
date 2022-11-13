@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="row pt-lg-5">
+  <section id="about" class="row py-5">
    
     <div class="col-12 col-lg-10 m-auto text-center text-md-start mb-3">
       <h3 class="pageStyleWordLight text-capitalize">
