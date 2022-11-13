@@ -1,10 +1,24 @@
 <template>
-  <header id="header" class="container-fluid pt-4 sticky-top">
+  <header id="header" class="container-fluid fixed-top">
     <nav>
-      <div class="row">
+      <div class="row justify-content-center justify-content-lg-end">
+    
+        <div id="hambMenu" class="col-12 d-flex justify-content-end my-2 d-lg-none">
+          <button @click="isHambOpen = !isHambOpen">
+            <font-awesome-icon icon="fa-solid fa-bars" />
+          </button>
+        </div>
+       
+        <ul class="text-end d-lg-none" :class="isHambOpen ? 'd-block' : 'd-none'">
+          <li v-for="(link, i) in navBarLinks" :key="i" class="d-lg-inline py-2">
+            <a :href="link.route" :class="{ 'active' : link.isActive }" >
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
 
-        <ul class="col-12">
-          <li v-for="(link, i) in navBarLinks" :key="i">
+        <ul class="d-none d-lg-block col-lg-6 text-end py-lg-3">
+          <li v-for="(link, i) in navBarLinks" :key="i" class="d-lg-inline py-2">
             <a :href="link.route" :class="{ 'active' : link.isActive }" >
               {{ link.text }}
             </a>
@@ -22,10 +36,11 @@ export default {
   data(){
     return{
       currentActive: 0,
+      isHambOpen: true,
       navBarLinks:[
         {
-          text: '',
-          route: '',
+          text: 'Home',
+          route: '#',
           isActive: true,           
         },
         {
@@ -74,17 +89,37 @@ export default {
   @import '../scss/partials/_variables.scss';
 
   #header{
+    #hambMenu{
+      button{
+        border: 2px solid $innerNebulaLight;
+        padding: .4rem .8rem;
+        border-radius: 5px;
+        background-color: $outerSpaceDark;
+
+      }
+      svg{
+        width: 1.3rem;
+        height: 1.3rem;
+        vertical-align: middle;
+        path{
+          color: $innerNebulaLight;
+        }
+      }
+        &:active{
+          button{
+            border-color: $innerNebulaDark;
+          }
+          path{
+            color: $innerNebulaDark;
+          }
+        }
+    }
     
     ul{
       list-style: none;
-      text-align: end;
 
       li{
-        display: inline;
-        margin: 0 1rem;
-      &:first-child{
-        display: none;
-      }
+        padding: 0 1rem;
 
         .active{
           color: $innerNebulaLight;
@@ -102,8 +137,6 @@ export default {
                color: $innerNebulaLight;
             }
           }
-
-
         }
       }
     }
