@@ -8,7 +8,12 @@
         <li class="p-0">
           <div id="hambMenu" class="col-12 d-flex justify-content-end my-2 d-lg-none" >
             <button @click="isHambOpen = !isHambOpen">
-              <font-awesome-icon icon="fa-solid fa-bars"/>
+              <Transition name="hambIcon">
+                <font-awesome-icon icon="fa-solid fa-x" v-if="isHambOpen"/>
+              </Transition>
+                <Transition name="hambIcon">
+                <font-awesome-icon icon="fa-solid fa-bars" v-if="!isHambOpen"/>
+              </Transition>
             </button>
           </div>
         </li>
@@ -104,6 +109,17 @@ export default {
     .bgAnimated{
       backdrop-filter: blur(15px);
     }
+
+    .hambIcon-enter-active{
+      transition: all 200ms;
+    }
+    .hambIcon-enter{
+      transform: rotateY(180deg);
+    }
+    .hambIcon-leave-active {
+      display: none;
+    }
+    
     .hambMenu-enter-active, 
     .hambMenu-leave-active {
       transition: all 200ms;

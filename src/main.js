@@ -14,6 +14,7 @@ import
   faPizzaSlice as ita,
   faEarthAmericas as eng,
   faBars,
+  faX,
 } 
 from '@fortawesome/free-solid-svg-icons'
 import 
@@ -35,7 +36,7 @@ import
 from '@fortawesome/free-brands-svg-icons'
 
 library.add(
-  github, vue, html, css, bootstrap, sass, git, js, php, laravel, java, spring, faBars,
+  github, vue, html, css, bootstrap, sass, git, js, php, laravel, java, spring, faBars, faX,
   linkedin, twitter, arrowLeft, arrowRight, arrowUp, mySql, teamwork, ita, eng,
   )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
