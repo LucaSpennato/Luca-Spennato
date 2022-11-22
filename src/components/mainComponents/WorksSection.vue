@@ -234,7 +234,10 @@ export default {
 
   #works{
     position: relative;
-    min-height: 100vh;
+
+    @media screen and (max-width: 575.98px) {
+      min-height: 100vh;
+    }
     .btns-field{
       display: flex;
       justify-content: space-between;

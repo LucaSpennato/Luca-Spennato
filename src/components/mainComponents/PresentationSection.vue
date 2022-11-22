@@ -50,7 +50,9 @@ export default {
 <style lang="scss" scoped>
 
     #presentation{
-        min-height: 75vh;
+        @media screen and (max-width: 575.98px) {
+            min-height: 85vh;
+        }
 
         .img-container{
             transform: rotate(20deg);

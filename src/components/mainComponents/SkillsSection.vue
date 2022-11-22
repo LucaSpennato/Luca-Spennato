@@ -140,7 +140,10 @@ export default {
   @import '../../scss/partials/_variables.scss';
 
   #skills{
-    min-height: 80vh;
+    @media screen and (max-width: 575.98px) {
+      min-height: 80vh;
+    }
+
     #selection{
       text-transform: capitalize;
       border: 1px solid #fff;

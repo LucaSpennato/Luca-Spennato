@@ -35,9 +35,13 @@ export default {
 
 <style lang="scss" scoped>
 
-  #about{
-    min-height: 80vh;
+@media screen and (max-width: 575.98px) {
+    #about{
+      min-height: 80vh;
+    }
   }
+
+ 
 
 
 </style>

@@ -73,7 +73,9 @@ export default {
 @import '../../scss/partials/variables';
 
     #reachMe{
-        min-height: 80vh;
+        @media screen and (max-width: 575.98px) {
+            min-height: 80vh;
+        }
 
         button{
             font-weight: bold;
