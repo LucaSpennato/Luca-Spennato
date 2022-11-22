@@ -141,7 +141,7 @@ export default {
 
   #skills{
     @media screen and (max-width: 575.98px) {
-      min-height: 80vh;
+      min-height: 83vh;
     }
 
     #selection{

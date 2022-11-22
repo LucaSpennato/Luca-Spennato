@@ -51,7 +51,7 @@ export default {
 
     #presentation{
         @media screen and (max-width: 575.98px) {
-            min-height: 85vh;
+            min-height: 78vh;
         }
 
         .img-container{
