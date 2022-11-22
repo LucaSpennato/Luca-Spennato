@@ -50,6 +50,7 @@ export default {
 <style lang="scss" scoped>
 
     #presentation{
+        min-height: 75vh;
 
         .img-container{
             transform: rotate(20deg);

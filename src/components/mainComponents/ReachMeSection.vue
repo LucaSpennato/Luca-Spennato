@@ -73,6 +73,7 @@ export default {
 @import '../../scss/partials/variables';
 
     #reachMe{
+        min-height: 80vh;
 
         button{
             font-weight: bold;

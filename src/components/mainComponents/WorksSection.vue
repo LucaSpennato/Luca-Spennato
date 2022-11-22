@@ -234,7 +234,7 @@ export default {
 
   #works{
     position: relative;
-
+    min-height: 100vh;
     .btns-field{
       display: flex;
       justify-content: space-between;
@@ -284,6 +284,11 @@ export default {
         }
       }
     }
+
+    .description{
+      min-height: 30vh;
+    }
+
 
   #carousel-imgs-wrapper{
     *:not(.description){
