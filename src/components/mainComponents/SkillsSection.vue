@@ -1,6 +1,6 @@
 <template>
   <section id="skills" class="row py-5">
-    <div class="col-12 col-md-10 offset-md-1">
+    <div class="col-12 col-md-10 offset-md-1 my-3">
           <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
             my skills
           </h3>
@@ -140,7 +140,7 @@ export default {
   @import '../../scss/partials/_variables.scss';
 
   #skills{
-    min-height: 80vh;
+
     #selection{
       text-transform: capitalize;
       border: 1px solid #fff;

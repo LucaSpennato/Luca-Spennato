@@ -1,7 +1,7 @@
 <template>
   <section id="works" class="row py-5">
   
-    <div class="col-12 mb-3">
+    <div class="col-12 my-3">
         <h3 class="pageStyleWordLight text-capitalize mb-5 text-center text-md-start">
           Works i've done
         </h3>
@@ -234,7 +234,7 @@ export default {
 
   #works{
     position: relative;
-    min-height: 100vh;
+
     .btns-field{
       display: flex;
       justify-content: space-between;
@@ -284,11 +284,6 @@ export default {
         }
       }
     }
-
-    .description{
-      min-height: 30vh;
-    }
-
 
   #carousel-imgs-wrapper{
     *:not(.description){

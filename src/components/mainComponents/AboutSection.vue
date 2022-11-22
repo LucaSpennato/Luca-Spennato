@@ -35,9 +35,4 @@ export default {
 
 <style lang="scss" scoped>
 
-  #about{
-    min-height: 80vh;
-  }
-
-
 </style>

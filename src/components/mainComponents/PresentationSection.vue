@@ -1,5 +1,5 @@
 <template>
-  <section id="presentation" class="row position-relative py-5">
+  <section id="presentation" class="row position-relative py-5 mt-4">
  
     <div class="col-12 col-sm-10 col-lg-8 mb-2">
         <h5>
@@ -50,7 +50,6 @@ export default {
 <style lang="scss" scoped>
 
     #presentation{
-        min-height: 75vh;
 
         .img-container{
             transform: rotate(20deg);

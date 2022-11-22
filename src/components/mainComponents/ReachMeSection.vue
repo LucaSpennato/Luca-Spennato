@@ -1,7 +1,7 @@
 <template>
   <section id="reachMe" class="row py-5">
     <div class="col-12 col-md-10 offset-md-1">
-        <h3 class="pageStyleWordLight text-capitalize mb-3 text-center text-md-start pb-5">
+        <h3 class="pageStyleWordLight text-capitalize my-3 text-center text-md-start pb-5">
             how to reach me
         </h3>
         <h5 class="text-center pb-5 mb-sm-5">
@@ -73,7 +73,6 @@ export default {
 @import '../../scss/partials/variables';
 
     #reachMe{
-        min-height: 80vh;
 
         button{
             font-weight: bold;

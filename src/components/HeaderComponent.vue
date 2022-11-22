@@ -30,12 +30,12 @@
       </div>
       <div class="row justify-content-center justify-content-lg-end">
     
-      <ul class="d-none d-lg-block col-lg-6 text-end py-lg-3">
-        <li v-for="(link, i) in navBarLinks" :key="i" class="d-lg-inline py-2">
-          <a :href="link.route" :class="{ 'active' : link.isActive }" >
-            {{ link.text }}
-          </a>
-        </li>
+      <ul id="lgMenu" class="d-none d-lg-block text-end py-lg-2">
+          <li v-for="(link, i) in navBarLinks" :key="i" class="d-lg-inline py-5">
+            <a :href="link.route" :class="{ 'active' : link.isActive }" >
+              {{ link.text }}
+            </a>
+          </li>
       </ul>
       
       </div>
@@ -152,6 +152,10 @@ export default {
             color: $innerNebulaDark;
           }
         }
+    }
+
+    #lgMenu{
+      background-color: $outerSpaceDark;
     }
     
     ul{
