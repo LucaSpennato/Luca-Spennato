@@ -152,6 +152,26 @@ export default {
           repoLink: 'https://github.com/LucaSpennato/html-css-spotifyweb',
           isActive: false,
         },
+        {
+          name: 'Spring Pizzeria',
+          src: 'springpizzeria',
+          description: 'Small project realized with Java-Spring. Allows CRUD operations in API to create and customize your menu!',
+          techUsed: ['html5', 'css3', 'bootstrap', 'git', 'js', 'vuejs', 'java', 'spring', 'database'],
+          repoLink: 'https://github.com/LucaSpennato/spring-la-mia-pizzeria-webapi',
+          isActive: false,
+        },
+        {
+          name: 'Photo Album',
+          src: 'springalbum',
+          description: `Project realized with Java-Spring. 
+                Allows CRUD operations for creating and customizing posts with images, creating categories and assigning tags to each photo from the back-office, accessible only to admin users.
+                In front-office, built in API with vue 3, it is possible to post comments.
+                In both back and front office it is also possible to search through posts by post name and tags!`,
+
+          techUsed: ['html5', 'css3', 'sass','bootstrap', 'git', 'js', 'vuejs', 'java', 'spring', 'database'],
+          repoLink: 'https://github.com/LucaSpennato/spring-il-mio-fotoalbum',
+          isActive: false,
+        },
       ]
     }
   },
